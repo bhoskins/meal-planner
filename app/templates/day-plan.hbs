@@ -1,1 +1,25 @@
+<h1 class="section-heading">Day Plan</h1>
+
+<form>
+
+<button class="previousDayIcon" >
+  lft arrow
+</button>
+
+<div class="userDate">
+
+{{moment now 'MMMM Do YYYY' }}
+
+</div>
+
+
+
+
+
+<input type="submit" {{action 'pickDate'}} >
+
+
+</form>
+
+
 {{outlet}}

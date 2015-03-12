@@ -2,16 +2,52 @@
 
 <form>
 
-<button class="previousDayIcon" >
-  lft arrow
+<button {{action 'previousDay' }} >
+  left arrow
 </button>
 
-<div class="userDate">
 
-{{moment now 'MMMM Do YYYY' }}
+<div class="showDate">
+  {{moment now 'MMMM Do YYYY' value=selectedDate }}
+
 
 </div>
 
+<button {{action 'nextDay'}}>
+  -->
+</button>
+
+{{input type="date" value=this.date action=selectDate}}
+
+{{!-- @@@@@@@@@@@@@@ Meal Category Select Below @@@@@@@@@@@@@@@@@@@@@ --}}
+
+<h2 class="food-category-heading">
+  Add Food Item
+</h2>
+
+<button class="food-cat-button" {{action 'selectVeggie' class="veggieButton" }} >
+  <span class="veggie-button">Veggie</span>
+</button>
+
+<button class="food-cat-button" {{action 'selectProtein'}} >
+  <span class="protein-button">Protein</span>
+</button>
+
+<button class="food-cat-button" {{action 'selectCarb'}} >
+  <span class="carb-button">Carb</span>
+</button>
+
+<button class="food-cat-button" {{action 'selectFruit'}} >
+  <span class="fruit-button">Fruit</span>
+</button>
+
+<button class="food-cat-button" {{action 'selectDairy'}} >
+  <span class="dairy-button">Dairy</span>
+</button>
+
+<button class="food-cat-button" {{action 'selectOther'}} >
+  <span class="other-button">Other</span>
+</button>
 
 
 
@@ -20,6 +56,8 @@
 
 
 </form>
+
+
 
 
 {{outlet}}

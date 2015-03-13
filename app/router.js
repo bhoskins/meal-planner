@@ -7,7 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('day-plan', { path: '/'}, function(){
-    this.route('veggies');
+    // this.route('veggies');
   });
   this.route('veggies');
 });

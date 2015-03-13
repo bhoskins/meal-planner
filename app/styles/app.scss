@@ -1,0 +1,84 @@
+@import "bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+@import "bower_components/neat/app/assets/stylesheets/neat";
+
+$max-width: 500px;
+$food-item-height: 20px;
+
+
+body {
+  margin: 0 auto;
+  width: 90%;
+}
+
+/***************************************
+    Veggies Template Styles Below
+***************************************/
+.section-header {
+  text-align: center;
+}
+
+.food-heading-wrap {
+  display: block;
+  max-width: $max-width;
+  vertical-align: middle;
+}
+
+.food-item-div {
+  display: block;
+  max-width: $max-width;
+  height: $food-item-height;
+  margin-bottom: .1em;
+  vertical-align: middle;
+}
+
+.food-heading {
+  display: inline-block;
+}
+
+.food-item-div * {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.section-wrap {
+  @include outer-container;
+}
+
+.selected-food {
+  @include span-columns(1);
+}
+
+.amt-input {
+  @include span-columns(2);
+}
+
+.amt-unit {
+  @include span-columns(2);
+}
+
+.food-item-heading,
+.food-item {
+  @include span-columns(5);
+}
+
+.food-item {
+  margin: 0;
+  padding: 0;
+}
+
+.is-favorite {
+  @include span-columns(1);
+
+}
+
+.add-food {
+  @include span-columns(1);
+  @include omega();
+}
+
+.text-align-right {
+  text-align: center;
+}
+

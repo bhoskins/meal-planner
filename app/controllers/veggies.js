@@ -17,9 +17,9 @@ export default Ember.Controller.extend({
   addFoods: function(){
     if (this.isFavorite === true){
       console.log('Asparagus is a favorite');
-      var name = $('.food-item').text();
-      var amt = $('input.amt-input').val();
-      var amtUnit = $('select.amt-unit').val();
+      var name = Ember.$('.food-item').text();
+      var amt = Ember.$('input.amt-input').val();
+      var amtUnit = Ember.$('select.amt-unit').val();
       console.log("name: " + name);
       console.log("amt: " + amt);
       console.log("amtUnit: " + amtUnit);
@@ -27,7 +27,7 @@ export default Ember.Controller.extend({
         name: name,
         amt: amt,
         amtUnit: amtUnit
-      }
+      };
       this.selectedFoods.push(selectedFood);
       // (this.selectedFoods).each(function(index, item){
       //   console.log(item);

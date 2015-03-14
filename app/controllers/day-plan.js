@@ -82,9 +82,11 @@ export default Ember.Controller.extend({
 
       console.log('pickDate fired ' + this.date );
 
+
     },
     selectVeggie: function(){
       console.log('Its a ...' + this.veggieButton);
+            this.transitionTo('veggies');
     },
     selectProtein: function(){
       console.log('Its a ...' + this.proteinButton);

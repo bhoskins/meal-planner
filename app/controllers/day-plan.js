@@ -19,6 +19,12 @@ export default Ember.Controller.extend({
     return moment(date).format(format);
   }.property('date', 'format'),
 
+  isFavorite: false,
+  amtUnit: [ "items", "g", "oz", "tsp", "Tbsp",
+  "cup", "pint", "quarts", "gallons", "lb"],
+  isSelected: false,
+  selectedFoods: [],
+
   actions: {
     previousDay: function() {
       // var showDate = moment().subtract(1, 'days');
@@ -86,23 +92,60 @@ export default Ember.Controller.extend({
     },
     selectVeggie: function(){
       console.log('Its a ...' + this.veggieButton);
-            this.transitionTo('veggies');
+      this.transitionToRoute('dayPlan.veggies');
+
     },
     selectProtein: function(){
       console.log('Its a ...' + this.proteinButton);
+      this.transitionToRoute('dayPlan.protein');
     },
     selectCarb: function(){
       console.log('Its a ...' + this.carbButton);
+      this.transitionToRoute('carb');
     },
     selectFruit: function(){
       console.log('Its a ...' + this.fruitButton);
+      this.transitionToRoute('fruit');
     },
     selectDairy: function(){
       console.log('Its a ...' + this.dairyButton);
+      this.transitionToRoute('dairy');
     },
     selectOther: function(){
       console.log('Its a ...' + this.otherButton);
+      this.transitionToRoute('other');
     },
+    addFoods: function(){
+      if (this.isFavorite === true){
+      console.log('Asparagus is a favorite');
+      var name = Ember.$('.food-item').text();
+      var amt = Ember.$('input.amt-input').val();
+      var amtUnit = Ember.$('select.amt-unit').val();
+      console.log("name: " + name);
+      console.log("amt: " + amt);
+      console.log("amtUnit: " + amtUnit);
+      var selectedFood = {
+        name: name,
+        amt: amt,
+        amtUnit: amtUnit
+      };
+      this.selectedFoods.push(selectedFood);
+      // (this.selectedFoods).each(function(index, item){
+      //   console.log(item);
+      // });
+
+    }else{
+      this.set('isSelected', false);
+      return;
+    }
+    },
+      pickFood: function() {
+
+
+    },
+    showDetails: function(){
+
+    }
   }
 });
 

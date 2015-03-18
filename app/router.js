@@ -7,9 +7,10 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('dayPlan', { path: '/'}, function(){
-      this.route('veggies');
+
       this.route('protein');
   });
+  this.route('veggies');
 
 
 
@@ -17,6 +18,7 @@ Router.map(function() {
   this.route('fruit');
   this.route('dairy');
   this.route('other');
+  this.route('food');
 });
 
 export default Router;

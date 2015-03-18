@@ -2,6 +2,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  needs: "veggies",
   actions: {
     showModal: function(evt) {
       this.render(evt.modalName, {

@@ -19,9 +19,12 @@
     <p class="food-heading food-item-heading">Name</p>
     <p class="food-heading is-favorite">Fav</p>
     <p class="food-heading add-food">Add</p>
-  </div><!-- .food-heading2qa
-  } <!-- food-heading-wrap -->
+  </div><!-- .food-heading-wrap -->
 
+
+<ul>
+{{#each veggie in model }}
+  <li>
 
   <div class="food-item-div">
     {{input type="checkbox" class="selected-food" checked=isSelected }}
@@ -32,7 +35,7 @@
     class="amt-unit food-line" content=amtUnit value="cup" }}
 
     <p class="veggie-item food-item food-line" {{action 'showDetails'}} >
-      Asparagus
+      {{veggie.foodName}}
     </p>
 
     {{input type="checkbox" class="is-favorite food-line text-align-right" checked=isFavorite action=isFavAction }}
@@ -43,12 +46,12 @@
 
   </div><!-- .food-item-div -->
 
+  </li>
+  {{/each}}
+  </ul>
+
+
 
 
 
 </div><!-- .section-wrap -->
-
-
-
-
-

@@ -9,8 +9,10 @@ Router.map(function() {
   this.resource('dayPlan', { path: '/'}, function(){
 
       this.route('protein');
+
   });
   this.route('veggies');
+  this.route('meal');
 
 
 
@@ -19,6 +21,7 @@ Router.map(function() {
   this.route('dairy');
   this.route('other');
   this.route('food');
+
 });
 
 export default Router;

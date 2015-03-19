@@ -1,58 +1,98 @@
 <h1 class="section-heading">Day Plan</h1>
 
+
+
+{{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
+<div class="meal-type nav">
+
+  <button value=model.breakfast
+    {{action 'pickBreakfast' }}>
+    Breakfast
+  </button>
+
+  <button value=model.snack1
+    {{action 'pickSnack1' }}>
+    Snack 1
+  </button>
+
+  <button value=model.lunch
+    {{action 'pickLunch' }}>
+    Lunch
+  </button>
+
+  <button value=model.snack2
+    {{action 'pickSnack2' }}>
+    Snack 2
+  </button>
+
+  <button value=model.dinner
+    {{action 'pickDinner' }}>
+    Dinner
+  </button>
+
+  <button value=model.other
+    {{action 'pickOther' }}>
+    Other
+  </button>
+
+</div><!-- .meal-type .nav -->
+
+{{!-- @@@@@@ Select Date @@@@@@@@ --}}
+
 <form>
-
-<button {{action 'previousDay' }} >
-  left arrow
-</button>
-
-
-<div class="showDate">
-  {{moment now 'MMMM Do YYYY' value=selectedDate }}
+  <button {{action 'previousDay' }} >
+    left arrow
+  </button>
 
 
-</div>
+  <div class="showDate">
+    {{moment now 'MMMM Do YYYY' value=selectedDate }}
 
-<button {{action 'nextDay'}}>
-  -->
-</button>
 
-{{input type="date" value=this.date action=selectDate}}
+  </div>
 
-{{!-- @@@@@@@@@@@@@@ Meal Category Select Below @@@@@@@@@@@@@@@@@@@@@ --}}
+  <button {{action 'nextDay'}}>
+    -->
+  </button>
 
-<h2 class="food-category-heading">
-  Add Food Item
-</h2>
+  {{input type="date" value=this.date action=selectDate}}
 
-<button class="food-cat-button" {{action 'selectVeggie' class="veggieButton" }} >
-  <span class="veggie-button">Veggie</span>
-</button>
+  {{!-- @@@@@@@@@@@@@@ Meal Category Select Below @@@@@@@@@@@@@@@@@@@@@ --}}
 
-<button class="food-cat-button" {{action 'selectProtein'}} >
-  <span class="protein-button">Protein</span>
-</button>
+  <h2 class="food-category-heading">
+    Add Food Item
+  </h2>
 
-<button class="food-cat-button" {{action 'selectCarb'}} >
-  <span class="carb-button">Carb</span>
-</button>
+  <button class="food-cat-button" {{action 'selectVeggie' class="veggieButton" }} >
+    <span class="veggie-button">Veggie</span>
+  </button>
 
-<button class="food-cat-button" {{action 'selectFruit'}} >
-  <span class="fruit-button">Fruit</span>
-</button>
+  <button class="food-cat-button" {{action 'selectProtein'}} >
+    <span class="protein-button">Protein</span>
+  </button>
 
-<button class="food-cat-button" {{action 'selectDairy'}} >
-  <span class="dairy-button">Dairy</span>
-</button>
+  <button class="food-cat-button" {{action 'selectCarb'}} >
+    <span class="carb-button">Carb</span>
+  </button>
 
-<button class="food-cat-button" {{action 'selectOther'}} >
-  <span class="other-button">Other</span>
-</button>
+  <button class="food-cat-button" {{action 'selectFruit'}} >
+    <span class="fruit-button">Fruit</span>
+  </button>
 
+  <button class="food-cat-button" {{action 'selectDairy'}} >
+    <span class="dairy-button">Dairy</span>
+  </button>
+
+  <button class="food-cat-button" {{action 'selectOther'}} >
+    <span class="other-button">Other</span>
+  </button>
 
 
 
-<input type="submit" {{action 'pickDate'}} >
+
+  <button type="submit" {{action 'createMeal'}} >
+    Save Meal
+  </button>
 
 
 </form>
@@ -65,3 +105,7 @@
 {{outlet 'selectFood'}}
 {{outlet 'veggies'}}
 {{outlet 'protein'}}
+{{outlet 'meal'}}
+
+<h1 class="selected-meal"> {{selectedMealDisplay}}</h1>
+

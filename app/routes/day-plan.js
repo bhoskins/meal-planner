@@ -31,6 +31,10 @@ export default Ember.Route.extend({
       into: 'dayPlan',
       outlet: 'protein'
     });
+    this.render('meal', {
+      into: 'dayPlan',
+      outlet: 'meal'
+    });
     }
 
   // setupController: function(controller) {

@@ -5,5 +5,4 @@ export default Ember.Route.extend({
     return this.store.findAll('food');
     // return this.store.findQuery('food', 'vegetable');
   }
-
 });

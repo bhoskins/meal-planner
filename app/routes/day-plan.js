@@ -2,6 +2,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  needs: [ 'food'],
   actions: {
     showModal: function(evt) {
       this.render(evt.modalName, {
@@ -22,14 +23,23 @@ export default Ember.Route.extend({
 
   renderTemplate: function(){
     this.render();
-    this.render('veggies', {
+    // this.render('veggies', {
+    //   into: 'dayPlan',
+    //   outlet: 'veggies'
+    // });
+    // this.render('protein', {
+    //   into: 'dayPlan',
+    //   outlet: 'protein'
+    // });
+    this.render('meal', {
       into: 'dayPlan',
-      outlet: 'veggies'
+      outlet: 'meal'
     });
-    this.render('protein', {
+    this.render('show', {
       into: 'dayPlan',
-      outlet: 'protein'
+      outlet: 'showFood'
     });
+
     }
 
   // setupController: function(controller) {

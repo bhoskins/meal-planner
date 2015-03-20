@@ -11,6 +11,11 @@ body {
   width: 90%;
 }
 
+li, a {
+  list-style: none;
+  text-decoration: none;
+}
+
 /***************************************
     Veggies Template Styles Below
 ***************************************/
@@ -43,24 +48,24 @@ body {
 }
 
 .section-wrap {
-  @include outer-container;
+  //@include outer-container;
 }
 
 .selected-food {
-  @include span-columns(1);
+ // @include span-columns(1);
 }
 
 .amt-input {
-  @include span-columns(2);
+  //@include span-columns(2);
 }
 
 .amt-unit {
-  @include span-columns(2);
+  //@include span-columns(2);
 }
 
 .food-item-heading,
 .food-item {
-  @include span-columns(5);
+  //@include span-columns(5);
 }
 
 .food-item {
@@ -69,13 +74,13 @@ body {
 }
 
 .is-favorite {
-  @include span-columns(1);
+  //@include span-columns(1);
 
 }
 
 .add-food {
-  @include span-columns(1);
-  @include omega();
+  //@include span-columns(1);
+  //@include omega();
 }
 
 .text-align-right {

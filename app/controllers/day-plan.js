@@ -2,6 +2,10 @@ import Ember from 'ember';
 import { moment, ago } from 'ember-moment/computed';
 
 export default Ember.Controller.extend({
+  needs: ['veggies', 'food'],
+  selectedMeal: "",
+  selectedMealDisplay: "",
+  breakfast: "",
   veggieButton: "Veggie",
   proteinButton: 'Protein',
   carbButton: 'Carb',
@@ -26,6 +30,13 @@ export default Ember.Controller.extend({
   selectedFoods: [],
 
   actions: {
+
+    fireFoodController: function(){
+      // this.get('controllers.food').send('popup');
+      var test = this.get('controllers.food.foodProperty');
+      console.log(test);
+
+    },
     previousDay: function() {
       // var showDate = moment().subtract(1, 'days');
       // var day;
@@ -78,21 +89,68 @@ export default Ember.Controller.extend({
       console.log(nextDate);
       this.date = Ember.set(year, month, date);
     },
-    pickDate: function() {
+    createMeal: function() {
+      console.log('createMeal');
 
-     // {{moment now 'MMMM Do YYYY' value=selectedDate }}
+      // var key = this.selectedMeal;
+      // var date = "date";
+      // var dayPlan = {};
+      // dayPlan[key] = [{name: "bagel", amt: 0.5, amtUnit: "items"},
+      //     {name: "cream cheese", amt: 1, amtUnit: "oz"}
+      //   ];
+      // dayPlan[date] = this.date;
 
-      // Ember.$('.userDate').html(moment());
-      // var prevDay = moment().subtract(1, 'days').calendar();
-      // console.log("prevDay: " + prevDay);
+      var dayPlan = {
+        date: this.date,
+        breakfast: [{"amt": 5, "amtUnit": "item", "name": "bagel"},
+          {"amt": 5, "amtUnit": "Tbsp", "name": "cream cheese"}
+      ]
+    };
+      this.store.save('dayPlan', dayPlan);
 
-      console.log('pickDate fired ' + this.date );
+
 
 
     },
+    pickBreakfast: function(){
+      this.set('selectedMeal', 'breakfast');
+      this.set('selectedMealDisplay', 'Breakfast');
+      console.log(this.selectedMeal);
+    },
+
+    pickSnack1: function(){
+      this.set('selectedMeal', 'snack1');
+      this.set('selectedMealDisplay', 'Snack 1');
+      console.log(this.selectedMeal);
+    },
+
+    pickLunch: function(){
+      this.set('selectedMeal', 'lunch');
+      this.set('selectedMealDisplay', 'Lunch');
+      console.log(this.selectedMeal);
+    },
+
+    pickSnack2: function(){
+      this.set('selectedMeal', 'snack2');
+      this.set('selectedMealDisplay', 'Snack 2');
+      console.log(this.selectedMeal);
+    },
+
+    pickDinner: function(){
+      this.set('selectedMeal', 'dinner');
+      this.set('selectedMealDisplay', 'Dinner');
+      console.log(this.selectedMeal);
+    },
+
+    pickOther: function(){
+      this.set('selectedMeal', 'other');
+      this.set('selectedMealDisplay', 'Other');
+      console.log(this.selectedMeal);
+    },
+
     selectVeggie: function(){
       console.log('Its a ...' + this.veggieButton);
-      this.transitionToRoute('dayPlan.veggies');
+      this.transitionToRoute('veggies');
 
     },
     selectProtein: function(){

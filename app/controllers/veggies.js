@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   amtUnit: [ "items", "g", "oz", "tsp", "Tbsp",
   "cup", "pint", "quarts", "gallons", "lb"],
   isSelected: false,
-  selectedFoods: [],
+  // selectedFoods: [],
   actions: {
     popup: function(){
       alert('veggies controller fired');
@@ -26,6 +26,10 @@ export default Ember.Controller.extend({
     addToMeal: function(){
       var selectedFoods = this.get('controllers.food.mealFoods');
       console.log(selectedFoods);
+      this.set('controllers.dayPlan.dayPlanSelectedFoods', selectedFoods);
+      this.get('controllers.dayPlan').send('showSelectedFoods');
+
+
 
 
       this.transitionToRoute('dayPlan');

@@ -21,6 +21,9 @@
     <p class="food-heading add-food">Add</p>
   </div><!-- .food-heading-wrap -->
 
+<button {{ action 'addToMeal'}}>
+  Add to Meal
+</button>
 
 <ul>
 {{#each veggie in model itemController="food" }}

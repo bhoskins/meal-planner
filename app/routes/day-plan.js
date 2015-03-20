@@ -3,20 +3,20 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   needs: [ 'food'],
-  actions: {
-    showModal: function(evt) {
-      this.render(evt.modalName, {
-        outlet: 'protein',
-        into: 'dayPlan'
-      });
-    },
-    hideModal: function(evt) {
-      this.disconnectOutlet({
-        outlet: 'veggies',
-        parentView: 'dayPlan'
-      });
-    }
-  },
+  // actions: {
+  //   showModal: function(evt) {
+  //     this.render(evt.modalName, {
+  //       outlet: 'protein',
+  //       into: 'dayPlan'
+  //     });
+  //   },
+  //   hideModal: function(evt) {
+  //     this.disconnectOutlet({
+  //       outlet: 'veggies',
+  //       parentView: 'dayPlan'
+  //     });
+  //   }
+  // },
   model: function(){
     return this.store.findAll('dayPlan');
   },
@@ -35,9 +35,9 @@ export default Ember.Route.extend({
       into: 'dayPlan',
       outlet: 'meal'
     });
-    this.render('show', {
+    this.render('veggies', {
       into: 'dayPlan',
-      outlet: 'showFood'
+      outlet: 'veggies'
     });
 
     }

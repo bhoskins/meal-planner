@@ -2,7 +2,7 @@ import Ember from 'ember';
 import ajax from 'ic-ajax';
 
 export default Ember.Controller.extend({
-  needs: [ 'dayPlan'],
+  needs: [ 'dayPlan', 'veggies'],
   foodProperty: 'food is good!',
   isEditing: false,
   isFavorite: false,

@@ -24,7 +24,8 @@ export default Ember.Controller.extend({
       var selectedFoods = this.get('controllers.food.mealFoods');
       console.log(selectedFoods);
 
-      this.transitionToRoute('dayPlan');
+
+      // this.transitionToRoute('dayPlan');
     }
 
   }

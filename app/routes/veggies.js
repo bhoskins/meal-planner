@@ -7,7 +7,6 @@ export default Ember.Route.extend({
   },
 
   // renderTemplate: function(){
-  //   this.render();
   //   this.render('veggies', {
   //     into: 'dayPlan',
   //     outlet: 'veggies'

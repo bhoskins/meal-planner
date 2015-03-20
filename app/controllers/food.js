@@ -58,7 +58,7 @@ export default Ember.Controller.extend({
       console.log("amtUnit: " + amtUnit);
       var selectedFood = { name: name};
       this.mealFoods.push(selectedFood);
-      console.log(this.mealFoods)
+      console.log(this.mealFoods);
       // var selectedFood = {
       //   name: name,
       //   amt: amt,

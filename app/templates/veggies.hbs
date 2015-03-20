@@ -24,7 +24,7 @@
 
 <ul>
 {{#each veggie in model itemController="food" }}
-
+<form>
   <li>
 
   <div class="food-item-div">
@@ -46,10 +46,14 @@
     <button class="add-food-button add-food food-line text-align-right" {{action 'addFood' }}>
       +
     </button>
+    <button class="delete-food-button delete-food" {{action 'deleteSelectedFood'}}>
+    X
+    </button>
 
   </div><!-- .food-item-div -->
 
     </li>
+  </form>
 
     {{/each}}
   </ul>

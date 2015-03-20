@@ -9,10 +9,9 @@ export default Ember.Controller.extend({
   amtUnit: [ "items", "g", "oz", "tsp", "Tbsp",
   "cup", "pint", "quarts", "gallons", "lb"],
   isSelected: false,
-  selectedFoods: [],
+  mealFoods: [],
   selectedAmt: null,
   selectedAmtUnit: "",
-  test: 'controllers.dayPlan.dayPlanProperty',
 
   actions: {
     edit: function(){
@@ -37,6 +36,7 @@ export default Ember.Controller.extend({
     },
     showDetails: function(){
       console.log('showDetails');
+      this.transitionToRoute('show', this.get('model'));
 
 
     },
@@ -56,6 +56,9 @@ export default Ember.Controller.extend({
       console.log("name: " + name);
       console.log("amt: " + amt);
       console.log("amtUnit: " + amtUnit);
+      var selectedFood = { name: name};
+      this.mealFoods.push(selectedFood);
+      console.log(this.mealFoods)
       // var selectedFood = {
       //   name: name,
       //   amt: amt,
@@ -65,11 +68,22 @@ export default Ember.Controller.extend({
       // console.log(selectedFood);
       // this.selectedFoods = [];
 
-      this.transitionToRoute('dayPlan.show', this.get('model'));
+
 
 /*********** Display Name ****************/
 
 
+    },
+    deleteSelectedFood: function(){
+    //   Ember.$each(this.mealFoods, function(prop, val){
+    //     var name = this.get('model.foodName');
+    //     if (prop.foodName == name) {
+
+    //     }
+    //   }
+
+    //   });
+      console.log('delete the food please');
     }
   }
 });

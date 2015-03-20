@@ -8,7 +8,10 @@ export default Ember.Controller.extend({
   isSelected: false,
   selectedFoods: [],
   actions: {
-  pickFood: function() {
+    popup: function(){
+      alert('veggies controller fired');
+    },
+    pickFood: function() {
 
 
     },
@@ -25,7 +28,7 @@ export default Ember.Controller.extend({
       console.log(selectedFoods);
 
 
-      // this.transitionToRoute('dayPlan');
+      this.transitionToRoute('dayPlan');
     }
 
   }

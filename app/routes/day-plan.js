@@ -18,11 +18,14 @@ export default Ember.Route.extend({
   //   }
   // },
   model: function(){
-    return this.store.findAll('dayPlan');
+    // return this.store.findAll('dayPlan');
+    return Ember.RSVP.hash({
+      dayPlan: this.store.findAll('dayPlan'),
+      veggies: this.store.findAll('food')
+    });
   },
 
-  renderTemplate: function(){
-    this.render();
+  renderTemplate: function(controller, model){
     // this.render('veggies', {
     //   into: 'dayPlan',
     //   outlet: 'veggies'
@@ -31,16 +34,23 @@ export default Ember.Route.extend({
     //   into: 'dayPlan',
     //   outlet: 'protein'
     // });
-    this.render('meal', {
-      into: 'dayPlan',
-      outlet: 'meal'
-    });
+    // this.render('meal', {
+    //   into: 'dayPlan',
+    //   outlet: 'meal'
+    // });
+    this._super(controller, model.dayPlan);
     this.render('veggies', {
       into: 'dayPlan',
-      outlet: 'veggies'
+      outlet: 'veggies',
+      controller: 'veggies',
+      model: model.veggies
     });
 
-    }
+  },
+
+  setupController: function(controller, model) {
+    controller.set('model', model.dayPlan);
+  }
 
   // setupController: function(controller) {
   //   controller.set('createdAt',

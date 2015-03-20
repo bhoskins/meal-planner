@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
   isSelected: false,
   mealFoods: [],
   selectedAmt: null,
-  selectedAmtUnit: "",
+  selectedAmtUnit: "items",
 
   actions: {
     edit: function(){
@@ -75,15 +75,14 @@ export default Ember.Controller.extend({
 
     },
     deleteSelectedFood: function(){
-    //   Ember.$each(this.mealFoods, function(prop, val){
-    //     var name = this.get('model.foodName');
-    //     if (prop.foodName == name) {
-
-    //     }
-    //   }
-
-    //   });
-      console.log('delete the food please');
+          // arr.filter(callback[, thisArg])
+      // this.mealFoods.filter(function(item){
+      //   return item.foodName != 'this';
+      // });
+      var name = this.get('model.foodName');
+      var food = this.mealFoods.findBy('name', name);
+      this.mealFoods.removeObject(food);
+      console.log(this.mealFoods);
     }
   }
 });

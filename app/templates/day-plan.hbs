@@ -1,5 +1,10 @@
 <h1 class="section-heading">Day Plan</h1>
 
+<!-- test button for needs: 'food'
+<button {{action 'fireFoodController'}}>
+  test button in dayPlan
+</button>
+-->
 
 
 {{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
@@ -89,7 +94,6 @@
 
 
 
-
   <button type="submit" {{action 'createMeal'}} >
     Save Meal
   </button>
@@ -108,4 +112,6 @@
 {{outlet 'meal'}}
 
 <h1 class="selected-meal"> {{selectedMealDisplay}}</h1>
+
+{{outlet 'showFood'}}
 

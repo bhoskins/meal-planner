@@ -2,6 +2,7 @@ import Ember from 'ember';
 import { moment, ago } from 'ember-moment/computed';
 
 export default Ember.Controller.extend({
+  needs: ['veggies', 'food'],
   selectedMeal: "",
   selectedMealDisplay: "",
   breakfast: "",
@@ -29,6 +30,13 @@ export default Ember.Controller.extend({
   selectedFoods: [],
 
   actions: {
+
+    fireFoodController: function(){
+      // this.get('controllers.food').send('popup');
+      var test = this.get('controllers.food.foodProperty');
+      console.log(test);
+
+    },
     previousDay: function() {
       // var showDate = moment().subtract(1, 'days');
       // var day;

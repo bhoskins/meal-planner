@@ -24,16 +24,17 @@
 
 <ul>
 {{#each veggie in model itemController="food" }}
+
   <li>
 
   <div class="food-item-div">
     {{input type="checkbox" class='selected-food'
      checked=foodController.model.isSelected action='checkSelected'  }}
 
-    <input type="number" class="amt-input food-line" name="Amt" value=foodController.selectedAmt min="0" step="0.25">
+    <input type="number" class="amt-input food-line" name="Amt" value=selectedAmt min="0" step="0.25">
 
     {{view "select"
-    class="amt-unit food-line" content=amtUnit value=foodController.model.amtUnit }}
+    class="amt-unit food-line" content=amtUnit value=amtUnit }}
 
     <p class="veggie-item food-item food-line" {{action 'showDetails' on="click" value=foodController.model.name}} >
       {{veggie.model.foodName}}
@@ -49,6 +50,7 @@
   </div><!-- .food-item-div -->
 
     </li>
+
     {{/each}}
   </ul>
 

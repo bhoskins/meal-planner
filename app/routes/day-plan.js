@@ -23,18 +23,23 @@ export default Ember.Route.extend({
 
   renderTemplate: function(){
     this.render();
-    this.render('veggies', {
-      into: 'dayPlan',
-      outlet: 'veggies'
-    });
-    this.render('protein', {
-      into: 'dayPlan',
-      outlet: 'protein'
-    });
+    // this.render('veggies', {
+    //   into: 'dayPlan',
+    //   outlet: 'veggies'
+    // });
+    // this.render('protein', {
+    //   into: 'dayPlan',
+    //   outlet: 'protein'
+    // });
     this.render('meal', {
       into: 'dayPlan',
       outlet: 'meal'
     });
+    this.render('show', {
+      into: 'dayPlan',
+      outlet: 'showFood'
+    });
+
     }
 
   // setupController: function(controller) {

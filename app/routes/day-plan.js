@@ -33,6 +33,12 @@ export default Ember.Route.extend({
       controller: 'veggies',
       model: model.veggies
     });
+    this.render('protein', {
+      into: 'dayPlan',
+      outlet: 'protein',
+      controller: 'veggies',
+      model: model.protein
+    });
 
   },
 
@@ -40,9 +46,5 @@ export default Ember.Route.extend({
     controller.set('model', model.dayPlan);
   }
 
-  // setupController: function(controller) {
-  //   controller.set('createdAt',
-  //     new Date(2015, 1, 1));
 
-  // }
 });

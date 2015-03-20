@@ -155,7 +155,7 @@ export default Ember.Controller.extend({
     },
     selectProtein: function(){
       console.log('Its a ...' + this.proteinButton);
-      this.transitionToRoute('dayPlan.protein');
+      this.transitionToRoute('protein');
     },
     selectCarb: function(){
       console.log('Its a ...' + this.carbButton);

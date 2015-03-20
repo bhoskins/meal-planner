@@ -113,5 +113,15 @@
 
 <h1 class="selected-meal"> {{selectedMealDisplay}}</h1>
 
+<ul>
+{{#each item in this.dayPlanSelectedFoods}}
+  <li>
+    {{item.name}}
+  </li>
+{{/each}}
+</ul>
+
+
+
 {{outlet 'showFood'}}
 

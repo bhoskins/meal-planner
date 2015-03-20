@@ -3,7 +3,7 @@ import { moment, ago } from 'ember-moment/computed';
 
 export default Ember.Controller.extend({
   needs: ['veggies', 'food'],
-  selectedMeal: "",
+  dayPlanSelectedMeals: "",
   selectedMealDisplay: "",
   breakfast: "",
   veggieButton: "Veggie",
@@ -203,6 +203,11 @@ export default Ember.Controller.extend({
     },
     showDetails: function(){
 
+    },
+    showSelectedFoods: function(){
+      console.log('showSelectedFoods');
+      // this.dayPlanSelectedFoods = this.get('controllers.veggies.selectedFoods');
+      console.log(this.dayPlanSelectedFoods);
     }
   }
 });

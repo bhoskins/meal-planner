@@ -28,7 +28,10 @@ export default Ember.Controller.extend({
       console.log(selectedFoods);
       this.set('controllers.dayPlan.dayPlanSelectedFoods', selectedFoods);
       this.get('controllers.dayPlan').send('showSelectedFoods');
-
+      // this.render('veggies', {
+      //   into: 'dayPlan',
+      //   outlet: 'veggies'
+      // });
 
 
 

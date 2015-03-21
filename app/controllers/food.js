@@ -51,7 +51,8 @@ export default Ember.Controller.extend({
       var amt = this.get('this.selectedAmt');
       var amtUnit = this.get('this.selectedAmtUnit');
 
-      if ((amt) === 0 || (this.mealFoods).length > 0 ){
+      if ((amt) === 0  ){
+        // || (this.mealFoods).length > 0
         return;
       } else {
         // console.log("name: " + name);
@@ -64,7 +65,11 @@ export default Ember.Controller.extend({
           amtUnit: amtUnit
         };
         this.mealFoods.push(selectedFood);
-        console.log(this.mealFoods);
+
+        this.set('controllers.dayPlan.dayPlanSelectedFoods', this.mealFoods);
+        this.get('controllers.dayPlan').send('showSelectedFoods');
+        console.log('food controller this.mealFoods' + this.mealFoods);
+        // this.transitionToRoute('dayPlan');
       }
     },
 

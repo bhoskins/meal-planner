@@ -93,13 +93,15 @@ export default Ember.Controller.extend({
       console.log('createMeal');
 
       // var key = this.selectedMeal;
-      // var dayPlan = {};
-      // dayPlan[key] = [{name: "bagel", amt: 0.5, amtUnit: "items"},
+      var dayPlan = {};
+
+      // dayPlan = [{name: "bagel", amt: 0.5, amtUnit: "items"},
       //     {name: "cream cheese", amt: 1, amtUnit: "oz"}
       //   ];
       // dayPlan[date] = this.date;
 
       var dayPlan = {
+        user: 'current_user',
         date: this.date,
         breakfast: [{"amt": 5, "amtUnit": "item", "name": "bagel"},
           {"amt": 5, "amtUnit": "Tbsp", "name": "cream cheese"}
@@ -205,8 +207,9 @@ export default Ember.Controller.extend({
     },
     showSelectedFoods: function(){
       console.log('showSelectedFoods');
-      // this.dayPlanSelectedFoods = this.get('controllers.veggies.selectedFoods');
-      console.log(this.dayPlanSelectedFoods);
+      var mealFoods = this.get('controllers.food.mealFoods');
+      this.set('dayPlanSelectedFoods', mealFoods);
+      console.log('dayPlanSelectedFood' + this.dayPlanSelectedFoods);
     }
   }
 });

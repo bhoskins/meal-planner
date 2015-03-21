@@ -45,20 +45,9 @@
 {{!-- @@@@@@ Select Date @@@@@@@@ --}}
 
 <form>
-  <button {{action 'previousDay' }} >
-    left arrow
-  </button>
-
-
   <div class="showDate">
     {{moment now 'MMMM Do YYYY' value=selectedDate }}
-
-
   </div>
-
-  <button {{action 'nextDay'}}>
-    -->
-  </button>
 
   {{input type="date" value=this.date action=selectDate}}
 
@@ -116,7 +105,11 @@
 <ul>
 {{#each item in this.dayPlanSelectedFoods}}
   <li>
+    {{input type='number' value=item.amt}}
+    {{input type='select'
+    content=dayPlanAmtUnit value=item.amtUnit}}
     {{item.name}}
+
   </li>
 {{/each}}
 </ul>

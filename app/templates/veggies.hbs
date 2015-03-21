@@ -31,10 +31,8 @@
   <li>
 
   <div class="food-item-div">
-    {{input type="checkbox" class='selected-food'
-     checked=foodController.model.isSelected action='checkSelected'  }}
 
-    <input type="number" class="amt-input food-line" name="Amt" value=selectedAmt min="0" step="0.25">
+    {{input type="number" class="amt-input food-line" name="Amt" value=foodController.selectedAmt min="0" step="0.25"}}
 
     {{view "select"
     class="amt-unit food-line" content=foodController.amtUnit value=foodController.selectedAmtUnit }}
@@ -46,7 +44,7 @@
 
     {{input type="checkbox" class="is-favorite food-line text-align-right" checked=foodController.model.isFavorite action=isFavAction }}
 
-    <button class="add-food-button add-food food-line text-align-right" {{action 'addFood' }}>
+    <button type='submit' class="add-food-button add-food food-line text-align-right" {{action 'addFood' }}>
       +
     </button>
     <button class="delete-food-button delete-food" {{action 'deleteSelectedFood'}}>

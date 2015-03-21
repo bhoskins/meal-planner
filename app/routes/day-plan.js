@@ -21,7 +21,9 @@ export default Ember.Route.extend({
     // return this.store.findAll('dayPlan');
     return Ember.RSVP.hash({
       dayPlan: this.store.findAll('dayPlan'),
-      veggies: this.store.findAll('food')
+      veggies: this.store.findQuery('food', {
+      'foodCategory': 'vegetable'
+      })
     });
   },
 

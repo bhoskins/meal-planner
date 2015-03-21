@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
   "cup", "pint", "quarts", "gallons", "lb"],
   isSelected: false,
   mealFoods: [],
-  selectedAmt: null,
+  selectedAmt: 0,
   selectedAmtUnit: "items",
 
   actions: {
@@ -46,39 +46,29 @@ export default Ember.Controller.extend({
 
     addFood: function(){
 
-
-      // var name = Ember.$('.food-item').text();
-
       var name = this.get('model.foodName');
 
       var amt = this.get('this.selectedAmt');
       var amtUnit = this.get('this.selectedAmtUnit');
-      console.log("name: " + name);
-      console.log("amt: " + amt);
-      console.log("amtUnit: " + amtUnit);
-      var selectedFood = { name: name};
-      this.mealFoods.push(selectedFood);
-      console.log(this.mealFoods);
-      // var selectedFood = {
-      //   name: name,
-      //   amt: amt,
-      //   amtUnit: amtUnit
-      // };
-      // // this.selectedFoods.push(selectedFood);
-      // console.log(selectedFood);
-      // this.selectedFoods = [];
 
+      if ((amt) === 0 ){
+        return;
+      } else {
+        // console.log("name: " + name);
+        // console.log("amt: " + amt);
+        // console.log("amtUnit: " + amtUnit);
 
-
-/*********** Display Name ****************/
-
-
+        var selectedFood = {
+          name: name,
+          amt: amt,
+          amtUnit: amtUnit
+        };
+        this.mealFoods.push(selectedFood);
+        console.log(this.mealFoods);
+      }
     },
+
     deleteSelectedFood: function(){
-          // arr.filter(callback[, thisArg])
-      // this.mealFoods.filter(function(item){
-      //   return item.foodName != 'this';
-      // });
       var name = this.get('model.foodName');
       var food = this.mealFoods.findBy('name', name);
       this.mealFoods.removeObject(food);

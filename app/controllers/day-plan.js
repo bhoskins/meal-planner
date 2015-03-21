@@ -3,7 +3,7 @@ import { moment, ago } from 'ember-moment/computed';
 
 export default Ember.Controller.extend({
   needs: ['veggies', 'food'],
-  dayPlanSelectedMeals: "",
+  dayPlanSelectedFoods: [],
   selectedMealDisplay: "",
   breakfast: "",
   veggieButton: "Veggie",
@@ -93,7 +93,6 @@ export default Ember.Controller.extend({
       console.log('createMeal');
 
       // var key = this.selectedMeal;
-      // var date = "date";
       // var dayPlan = {};
       // dayPlan[key] = [{name: "bagel", amt: 0.5, amtUnit: "items"},
       //     {name: "cream cheese", amt: 1, amtUnit: "oz"}

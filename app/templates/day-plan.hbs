@@ -51,7 +51,7 @@
 
   {{input type="date" value=this.date action=selectDate}}
 
-  {{!-- @@@@@@@@@@@@@@ Meal Category Select Below @@@@@@@@@@@@@@@@@@@@@ --}}
+  {{!-- @@@ Meal Category Select Below @@@@ --}}
 
   <h2 class="food-category-heading">
     Add Food Item
@@ -81,15 +81,7 @@
     <span class="other-button">Other</span>
   </button>
 
-
-
-  <button type="submit" {{action 'createMeal'}} >
-    Save Meal
-  </button>
-
-
-</form>
-
+<!--@@@@@@@@@@@ Outlets @@@@@@@@@@@@@@@@-->
 
 
 
@@ -105,16 +97,19 @@
 <ul>
 {{#each item in this.dayPlanSelectedFoods}}
   <li>
-    {{input type='number' value=item.amt}}
-    {{input type='select'
-    content=dayPlanAmtUnit value=item.amtUnit}}
+    {{input type='number' min="0" step="0.25" value=item.amt}}
+    {{input type='select' content=dayPlanAmtUnit value=item.amtUnit}}
     {{item.name}}
 
   </li>
 {{/each}}
 </ul>
 
+  <button type="submit" {{action 'createMeal'}} >
+    Save Meal
+  </button>
+
+</form>
 
 
-{{outlet 'showFood'}}
 

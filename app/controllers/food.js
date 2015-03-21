@@ -2,7 +2,7 @@ import Ember from 'ember';
 import ajax from 'ic-ajax';
 
 export default Ember.Controller.extend({
-  needs: [ 'dayPlan', 'veggies'],
+  needs: [ 'dayPlan', 'veggies', 'food'],
   foodProperty: 'food is good!',
   isEditing: false,
   isFavorite: false,
@@ -51,7 +51,7 @@ export default Ember.Controller.extend({
       var amt = this.get('this.selectedAmt');
       var amtUnit = this.get('this.selectedAmtUnit');
 
-      if ((amt) === 0 ){
+      if ((amt) === 0 || (this.mealFoods).length > 0 ){
         return;
       } else {
         // console.log("name: " + name);

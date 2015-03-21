@@ -24,6 +24,7 @@ Router.map(function() {
   this.route('food');
 
 
+  this.route('calendar', { path: 'calendar/:dayPlan_id'});
 });
 
 export default Router;

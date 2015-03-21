@@ -6,6 +6,18 @@
 </button>
 -->
 
+{{!-- @@@@@@ Select Date @@@@@@@@ --}}
+
+<form>
+  <div class="showDate">
+    {{this.date}}
+  </div>
+
+  {{input type="date" value=this.date action="selectDate" id="day-plan-date"}}
+  <button {{action 'loadDayPlan'}}>
+    Load Meals
+  </button>
+
 
 {{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
 <div class="meal-type nav">
@@ -42,14 +54,6 @@
 
 </div><!-- .meal-type .nav -->
 
-{{!-- @@@@@@ Select Date @@@@@@@@ --}}
-
-<form>
-  <div class="showDate">
-    {{moment now 'MMMM Do YYYY' value=selectedDate }}
-  </div>
-
-  {{input type="date" value=this.date action=selectDate}}
 
   {{!-- @@@ Meal Category Select Below @@@@ --}}
 

@@ -13,7 +13,7 @@ export default Ember.Controller.extend({
   dairyButton: 'Dairy',
   otherButton: 'Other',
   date: new Date(),
-  shortdate: moment('date', 'MM/DD/YYYY'),
+  // shortdate: moment('date', 'MM/DD/YYYY'),
   timeSince: ago('date', true),
 
   format: "LL",
@@ -30,67 +30,54 @@ export default Ember.Controller.extend({
   selectedFoods: [],
 
   actions: {
-
     fireFoodController: function(){
       // this.get('controllers.food').send('popup');
       var test = this.get('controllers.food.foodProperty');
       console.log(test);
 
     },
+
+    loadDayPlan: function(){
+      console.log('loadDayPlan fired');
+
+      console.log(this.date);
+      var dateSplit = (this.date).split("-");
+      console.log('year is ' + dateSplit[0]);
+      console.log('month is ' + dateSplit[1]);
+      console.log('date is ' + dateSplit[2]);
+      // this.store.findQuery('dayPlan', "date");
+
+
+
+
+    },
+//     Date.prototype.getDate()
+//   gets day 1-31 of month
+
+// Date.prototype.getDay()
+//   gets day of week: 0-6
+
+// Date.prototype.getFullYear()
+//   four digit year
+
+// Date.prototype.getMonth()
+//   0-11
     previousDay: function() {
-      // var showDate = moment().subtract(1, 'days');
-      // var day;
-      // var dayNum = (this.date).getDay() - 1;
-
-      //   if (dayNum === -1){
-      //   dayNum = 6;
-      //   day = "Saturday"
-      // }elseif (dayNum === 0){
-      //   day = "Sunday";
-      // }elseif (dayNum === 1){
-      //   day = "Monday";
-      // }elseif (dayNum === 2){
-      //   day="Tuesday";
-      // }elseif ( dayNum === 3) {
-      //   day = "Wednesday";
-      // }elseif (dayNum === 4){
-      //   day = "Thursday";
-      // }elseif (dayNum === 5){
-      //   day = "Friday";
-      // }elseif (dayNum === 6){
-      //   day = "Saturday";
-      // }
-
-      // var month = (this.date).getMonth() + 1;
-      // var date = (this.date).getDate() - 1;
-      // var year = (this.date).getFullYear();
-      // var previousDate =  (month) + "/" + date + "/" + year;
-
-      // console.log('previousDate: ' );
-      // console.log(date);
-      // console.log(previousDate);
-      // console.log(day);
-      // if (month === -1){ month = 11;}
-      // this.date = new Date(year, (month - 1), date);
-      // Ember.$('.showDate').html(previousDate);
-
-
+      var dayParse = Date.parse(this.date);
+      var prevDayMs = dayParse - (1000*60*60*24);
+      var prevDay = new Date(prevDayMs);
     },
 
     nextDay: function(){
-      var month = (this.date).getMonth() + 1;
-      var date = (this.date).getDate() + 1;
-      var year = (this.date).getFullYear();
-      var nextDate = month + "/" + date + "/" + year;
-      Ember.$('.showDate').html(nextDate);
-
-      console.log('nextDay: ' );
-      console.log(date);
-      console.log(nextDate);
-      this.date = Ember.set(year, month, date);
+      var dayParse = Date.parse(this.date);
+      var nextDayParse = dayParse + (1000*60*60*24);
+      var nextDay = new Date(nextDayParse);
+      console.log('next Day is ' + nextDay);
     },
+
     createMeal: function() {
       console.log('createMeal');
+      console.log("this.date is " + this.date);
 
       // var key = this.selectedMeal;
       var dayPlan = {};
@@ -100,7 +87,7 @@ export default Ember.Controller.extend({
       //   ];
       // dayPlan[date] = this.date;
 
-      var dayPlan = {
+      dayPlan = {
         user: 'current_user',
         date: this.date,
         breakfast: [{"amt": 5, "amtUnit": "item", "name": "bagel"},
@@ -108,9 +95,15 @@ export default Ember.Controller.extend({
       ]
     };
       this.store.save('dayPlan', dayPlan);
-
-
-
+      // alert('Great Job! The meals for this day are saved.');
+      var dayParse = Date.parse(this.date);
+      var prevDayMs = dayParse - (1000*60*60*24);
+      var prevDay = new Date(prevDayMs);
+      // (this.date).setTime(prevDayMs);
+      console.log('prevDay is ' + prevDay);
+      var nextDayParse = dayParse + (1000*60*60*24);
+      var nextDay = new Date(nextDayParse);
+      console.log('next Day is ' + nextDay);
 
     },
     pickBreakfast: function(){

@@ -203,7 +203,7 @@ export default Ember.Controller.extend({
       var mealFoods = this.get('controllers.food.mealFoods');
       this.set('dayPlanSelectedFoods', mealFoods);
       console.log('dayPlanSelectedFood' + this.dayPlanSelectedFoods);
-    }
+    }.observes('controllers.food.mealFoods').on('change')
   }
 });
 

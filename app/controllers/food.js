@@ -69,7 +69,7 @@ export default Ember.Controller.extend({
         this.set('controllers.dayPlan.dayPlanSelectedFoods', this.mealFoods);
         this.get('controllers.dayPlan').send('showSelectedFoods');
         console.log('food controller this.mealFoods' + this.mealFoods);
-        // this.transitionToRoute('dayPlan');
+        this.transitionToRoute('dayPlan');
       }
     },
 

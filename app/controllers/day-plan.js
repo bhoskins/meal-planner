@@ -167,31 +167,35 @@ export default Ember.Controller.extend({
       console.log('Its a ...' + this.otherButton);
       this.transitionToRoute('other');
     },
-    addFoods: function(){
-      if (this.isFavorite === true){
-      console.log('Asparagus is a favorite');
-      var name = Ember.$('.food-item').text();
-      var amt = Ember.$('input.amt-input').val();
-      var amtUnit = Ember.$('select.amt-unit').val();
-      console.log("name: " + name);
-      console.log("amt: " + amt);
-      console.log("amtUnit: " + amtUnit);
-      var selectedFood = {
-        name: name,
-        amt: amt,
-        amtUnit: amtUnit
-      };
-      this.selectedFoods.push(selectedFood);
-      // (this.selectedFoods).each(function(index, item){
-      //   console.log(item);
-      // });
+    // addFoods: function(){
+    //   if (this.isFavorite === true){
+    //   console.log('Asparagus is a favorite');
+    //   var name = Ember.$('.food-item').text();
+    //   var amt = Ember.$('input.amt-input').val();
+    //   var amtUnit = Ember.$('select.amt-unit').val();
+    //   console.log("name: " + name);
+    //   console.log("amt: " + amt);
+    //   console.log("amtUnit: " + amtUnit);
+    //   var selectedFood = {
+    //     name: name,
+    //     amt: amt,
+    //     amtUnit: amtUnit
+    //   };
+    //   this.selectedFoods.push(selectedFood);
+    //   // (this.selectedFoods).each(function(index, item){
+    //   //   console.log(item);
+    //   // });
 
-    }else{
-      this.set('isSelected', false);
-      return;
-    }
+    // }else{
+    //   this.set('isSelected', false);
+    //   return;
+    // }
+    // },
+    addFood: function(food){
+      this.get('dayPlanSelectedFoods').pushObject(food);
+      this.transitionToRoute('dayPlan');
     },
-      pickFood: function() {
+    pickFood: function() {
 
 
     },

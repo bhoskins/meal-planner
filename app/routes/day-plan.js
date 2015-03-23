@@ -27,6 +27,22 @@ export default Ember.Route.extend({
     });
   },
 
+  /*
+  make a dynamic day plan route
+  Note: you should return a single model from findQuery, probably
+  model: function(params) {
+    return Ember.RSVP.hash({
+      dayPlan: this.store.findQuery('dayPlan', {date: params.date}),
+      veggies: .. same as above
+    }).then(function(model){
+      if(Ember.isEmpty(model.dayPlan)) {
+        model.dayPlan = this.store.createRecord('dayPlan');
+      }
+      return model;
+    });
+  }
+  */
+
   renderTemplate: function(controller, model){
     this._super(controller, model.dayPlan);
     this.render('veggies', {

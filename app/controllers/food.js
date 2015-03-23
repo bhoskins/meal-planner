@@ -55,21 +55,22 @@ export default Ember.Controller.extend({
         // || (this.mealFoods).length > 0
         return;
       } else {
-        // console.log("name: " + name);
-        // console.log("amt: " + amt);
-        // console.log("amtUnit: " + amtUnit);
+      //   // console.log("name: " + name);
+      //   // console.log("amt: " + amt);
+      //   // console.log("amtUnit: " + amtUnit);
 
         var selectedFood = {
           name: name,
           amt: amt,
           amtUnit: amtUnit
         };
-        this.mealFoods.push(selectedFood);
+      //   this.mealFoods.push(selectedFood);
 
-        this.set('controllers.dayPlan.dayPlanSelectedFoods', this.mealFoods);
-        this.get('controllers.dayPlan').send('showSelectedFoods');
-        console.log('food controller this.mealFoods' + this.mealFoods);
-        this.transitionToRoute('dayPlan');
+      //   this.set('controllers.dayPlan.dayPlanSelectedFoods', this.mealFoods);
+      //   this.get('controllers.dayPlan').send('showSelectedFoods');
+      //   console.log('food controller this.mealFoods' + this.mealFoods);
+        this.get('controllers.dayPlan').send('addFood', selectedFood);
+        // this.transitionToRoute('dayPlan');
       }
     },
 

@@ -102,7 +102,7 @@
 {{#each item in this.dayPlanSelectedFoods}}
   <li>
     {{input type='number' min="0" step="0.25" value=item.amt}}
-    {{input type='select' content=dayPlanAmtUnit value=item.amtUnit}}
+    {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
     {{item.name}}
 
   </li>

@@ -25,6 +25,8 @@ Router.map(function() {
 
 
   this.route('calendar', { path: 'calendar/:dayPlan_id'});
+  this.route('login');
+  this.route('register');
 });
 
 export default Router;

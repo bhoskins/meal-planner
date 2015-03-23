@@ -17,31 +17,66 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   //     });
   //   }
   // },
-  model: function(){
-    // return this.store.findAll('dayPlan');
-    return Ember.RSVP.hash({
-      dayPlan: this.store.findAll('dayPlan'),
-      veggies: this.store.findQuery('food', {
-      'foodCategory': 'vegetable'
-      })
-    });
-  },
+  // model: function(){
+  //   // return this.store.findAll('dayPlan');
+  //   return Ember.RSVP.hash({
+  //     dayPlan: this.store.findAll('dayPlan'),
+  //     veggies: this.store.findQuery('food', {
+  //     'foodCategory': 'vegetable'
+  //     })
+  //   });
+  // },
 
   /*
   make a dynamic day plan route
-  Note: you should return a single model from findQuery, probably
+  Note: you should return a single model from findQuery, probably*/
+
+  // model: function(params) {
+  //   return Ember.RSVP.hash({
+  //     dayPlan: this.store.findQuery('dayPlan', {
+  //       date: params.date
+  //     }),
+  //     veggies: this.store.findQuery('food', {
+  //     'foodCategory': 'vegetable'
+  //   }).then(function(model){
+  //     if(Ember.isEmpty(model.dayPlan)) {
+  //       console.log('dayPlan empty');
+  //       model.dayPlan = this.store.createRecord('dayPlan');
+  //     } else {
+  //     return model;
+  //     }
+  //     })
+  //   });
+  // },
+
   model: function(params) {
     return Ember.RSVP.hash({
-      dayPlan: this.store.findQuery('dayPlan', {date: params.date}),
-      veggies: .. same as above
-    }).then(function(model){
-      if(Ember.isEmpty(model.dayPlan)) {
-        model.dayPlan = this.store.createRecord('dayPlan');
-      }
-      return model;
-    });
-  }
-  */
+      dayPlan: this.store.findQuery('dayPlan', {
+        'date': params.date
+    }),
+      // .then(function(model){
+      // if(Ember.isEmpty(model.dayPlan)) {
+      //   console.log('dayPlan empty');
+      //   model.dayPlan = this.store.createRecord('dayPlan');
+      // } else {
+      // return model;
+      // }
+      // }),
+       veggies: this.store.findQuery('food', {
+      'foodCategory': 'vegetable'
+      })
+
+      // .then(function(model){
+      // if(Ember.isEmpty(model.dayPlan)) {
+      //   console.log('dayPlan empty');
+      //   model.dayPlan = this.store.createRecord('dayPlan');
+      // } else {
+      // return model;
+      // }
+      // })
+      });
+  },
+
 
   renderTemplate: function(controller, model){
     this._super(controller, model.dayPlan);

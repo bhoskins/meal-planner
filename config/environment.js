@@ -9,6 +9,17 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'connect-src': "'self' https://api.parse.com"
     },
+
+    'simple-auth': {
+      authorizer: 'authorizer:parse',
+      crossOriginWhitelist: ['https://api.parse.com']
+    },
+
+    parseKeys: {
+      applicationId: "oMI18FAQvH12OR6Z36lIlm5JztIxT8DEva9ZMk5W",
+      restApi: "Fi40BOW21agVHpkQNlXNUXjPpCKEvz3o90udFJ6s"
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

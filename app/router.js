@@ -6,10 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('dayPlan', { path: '/:dayPlan_id'}, function(){
-
-
-
+  this.resource('dayPlan', { path: '/'}, function(){
+    this.route('plan', { path: 'plan/:dayPlan_id'});
   });
   this.route('show', { path: '/show/:food_id'});
   this.route('veggies');
@@ -27,6 +25,7 @@ Router.map(function() {
   this.route('calendar', { path: 'calendar/:dayPlan_id'});
   this.route('login');
   this.route('register');
+
 });
 
 export default Router;

@@ -1,10 +1,5 @@
 <h1 class="section-heading">Day Plan</h1>
 
-<!-- test button for needs: 'food'
-<button {{action 'fireFoodController'}}>
-  test button in dayPlan
-</button>
--->
 
 {{!-- @@@@@@ Select Date @@@@@@@@ --}}
 
@@ -13,7 +8,8 @@
     {{this.date}}
   </div>
 
-  {{input type="date" value=this.date action="selectDate" id="day-plan-date"}}
+{{date-picker date=mydate valueFormat='YYYY-MM-DD' format='MM-DD-YYYY'}}
+
   <button {{action 'loadDayPlan'}}>
     Load Meals
   </button>

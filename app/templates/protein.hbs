@@ -32,7 +32,8 @@
 
   <div class="food-item-div">
 
-    <input type="number" class="amt-input food-line" name="Amt" value=selectedAmt min="0" step="0.25">
+    {{input type="number" class="amt-input food-line" name="Amt" value=foodController.selectedAmt min="0" step="0.25"}}
+
 
     {{view "select"
     class="amt-unit food-line" content=foodController.amtUnit value=foodController.selectedAmtUnit }}

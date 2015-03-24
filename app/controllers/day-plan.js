@@ -220,8 +220,9 @@ export default Ember.Controller.extend({
   //   }.observes('controllers.food.mealFoods').on('change')
   // },
 
-  deleteFood: function(){
-      console.log('deleteSelectedFood please');
+  deleteFood: function(food){
+      console.log('deleteSelectedFood please', food);
+      this.get('dayPlanSelectedFoods').removeObject(food);
       // var name = this.get('model.foodName');
       // var food = this.mealFoods.findBy('name', name);
       // this.mealFoods.removeObject(food);

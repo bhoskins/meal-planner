@@ -5,6 +5,10 @@
 $max-width: 500px;
 $food-item-height: 20px;
 
+$h1-size: 1.2em;
+$h2-size: 1em;
+$h3-size: .8em;
+
 
 body {
   margin: 0 auto;
@@ -14,6 +18,18 @@ body {
 li, a {
   list-style: none;
   text-decoration: none;
+}
+
+h1 {
+  font-size: $h1-size;
+}
+
+h2 {
+  font-size: $h2-size;
+}
+
+h3 {
+  font-size: $h3-size;
 }
 
 /***************************************

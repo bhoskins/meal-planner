@@ -5,14 +5,30 @@
 $max-width: 500px;
 $food-item-height: 20px;
 
+$title-size: 1.8em;
 $h1-size: 1.2em;
 $h2-size: 1em;
 $h3-size: .8em;
+$p-size: 1em;
+
+$content-bg: rgba(219, 220, 243, .5);
+$text-color: rgba(65, 74, 34, 1);
+$title-color: white;
 
 
 body {
+  display: relative;
   margin: 0 auto;
   width: 90%;
+  background: url('/assets/images/food.png') center center no-repeat;
+  background-size: cover;
+  color: $text-color;
+}
+
+#title {
+  text-align: center;
+  color: $title-color;
+  font-size: $title-size;
 }
 
 li, a {
@@ -31,6 +47,17 @@ h2 {
 h3 {
   font-size: $h3-size;
 }
+
+#page-wrap {
+  width: 90%;
+  height: 600px;
+  margin: 2em auto;
+  background-color: $content-bg;
+  border-radius: .5em;
+}
+
+
+
 
 /***************************************
     Veggies Template Styles Below

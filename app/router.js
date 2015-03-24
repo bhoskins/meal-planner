@@ -26,6 +26,7 @@ Router.map(function() {
   this.route('login');
   this.route('register');
 
+  this.route('custom', { path: '/custom/:food_id'});
 });
 
 export default Router;

@@ -1,7 +1,12 @@
-{{link-to 'Back' 'veggies'}}
+{{link-to 'Back' 'dayPlan'}}
 
 <h3>
   {{model.foodName}}
+  {{model.description}}
+  <p class="nutrients">
+    Calories per Serving:
+  {{model.gPserving / calP100g}}
+  </p>
 </h3>
 
 {{outlet}}

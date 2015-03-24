@@ -121,6 +121,8 @@ export default Ember.Controller.extend({
       this.set('selectedMeal', 'breakfast');
       this.set('selectedMealDisplay', 'Breakfast');
       console.log(this.selectedMeal);
+      this.set('this[selectedMeal]', this.selectedFoods);
+      console.log('')
     },
 
     pickSnack1: function(){
@@ -206,6 +208,12 @@ export default Ember.Controller.extend({
 
     addFood: function(food){
       this.get('dayPlanSelectedFoods').pushObject(food);
+      var key = this.selectedMeal;
+
+
+
+
+
       this.transitionToRoute('dayPlan');
     },
 
@@ -227,10 +235,14 @@ export default Ember.Controller.extend({
       // var food = this.mealFoods.findBy('name', name);
       // this.mealFoods.removeObject(food);
       // console.log(this.mealFoods);
-  }
+  },
+
+    addCustomFood: function(){
+      console.log('addCustomFood');
+    }
 
   }
-})
+});
 
 
 //{{input type="date" class="menu_date"  value=chosenDate }}

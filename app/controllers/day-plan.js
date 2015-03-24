@@ -4,7 +4,7 @@ import { moment, ago } from 'ember-moment/computed';
 export default Ember.Controller.extend({
   needs: ['veggies', 'food'],
   dayPlanSelectedFoods: [],
-  selectedMealDisplay: "",
+  selectedMealDisplay: "Breakfast",
   breakfast: "",
   veggieButton: "Veggie",
   proteinButton: 'Protein',
@@ -46,15 +46,23 @@ export default Ember.Controller.extend({
     loadDayPlan: function(){
       console.log('loadDayPlan fired');
 
-      console.log(this.date);
-      var dateSplit = (this.date).split("-");
+      console.log('mydate is ' + this.mydate);
+      var dateSplit = (this.mydate).split("-");
       console.log('year is ' + dateSplit[0]);
       console.log('month is ' + dateSplit[1]);
       console.log('date is ' + dateSplit[2]);
-      // this.store.findQuery('dayPlan', "date");
 
-
-
+      this.store.findQuery('dayPlan', {
+        'date': this.mydate
+      }).then(function(model){
+      if(Ember.isEmpty(model.dayPlan)) {
+        console.log('dayPlan empty');
+        model.dayPlan = this.store.createRecord('dayPlan');
+      } else {
+        console.log('dayPlan exists already');
+      return model;
+      }
+      })
 
     },
 //     Date.prototype.getDate()

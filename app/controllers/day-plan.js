@@ -144,7 +144,11 @@ export default Ember.Controller.extend({
 
     selectVeggie: function(){
       console.log('Its a ...' + this.veggieButton);
-      this.transitionToRoute('veggies');
+      // this.transitionToRoute('veggies');
+      // this.disconnectOutlet({
+      //   outlet: 'protein',
+      //   parentView: 'dayPlan'
+      // });
 
     },
     selectProtein: function(){

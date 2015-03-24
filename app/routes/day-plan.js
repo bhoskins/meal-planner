@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   // actions: {
   //   showModal: function(evt) {
   //     this.render(evt.modalName, {
-  //       outlet: 'protein',
+  //       outlet: 'veggies',
   //       into: 'dayPlan'
   //     });
   //   },

@@ -198,38 +198,12 @@ export default Ember.Controller.extend({
         this.set('this.isShowingOther', true );
       }
     },
-    // addFoods: function(){
-    //   if (this.isFavorite === true){
-    //   console.log('Asparagus is a favorite');
-    //   var name = Ember.$('.food-item').text();
-    //   var amt = Ember.$('input.amt-input').val();
-    //   var amtUnit = Ember.$('select.amt-unit').val();
-    //   console.log("name: " + name);
-    //   console.log("amt: " + amt);
-    //   console.log("amtUnit: " + amtUnit);
-    //   var selectedFood = {
-    //     name: name,
-    //     amt: amt,
-    //     amtUnit: amtUnit
-    //   };
-    //   this.selectedFoods.push(selectedFood);
-    //   // (this.selectedFoods).each(function(index, item){
-    //   //   console.log(item);
-    //   // });
 
-    // }else{
-    //   this.set('isSelected', false);
-    //   return;
-    // }
-    // },
     addFood: function(food){
       this.get('dayPlanSelectedFoods').pushObject(food);
       this.transitionToRoute('dayPlan');
     },
-    pickFood: function() {
 
-
-    },
     showDetails: function(){
 
     },
@@ -239,7 +213,15 @@ export default Ember.Controller.extend({
       this.set('dayPlanSelectedFoods', mealFoods);
       console.log('dayPlanSelectedFood' + this.dayPlanSelectedFoods);
     }.observes('controllers.food.mealFoods').on('change')
-  }
+  },
+
+  deleteFood: function(){
+      console.log('deleteSelectedFood please');
+      // var name = this.get('model.foodName');
+      // var food = this.mealFoods.findBy('name', name);
+      // this.mealFoods.removeObject(food);
+      // console.log(this.mealFoods);
+    }
 });
 
 

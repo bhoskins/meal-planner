@@ -17,15 +17,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   //     });
   //   }
   // },
-  // model: function(){
-  //   // return this.store.findAll('dayPlan');
-  //   return Ember.RSVP.hash({
-  //     dayPlan: this.store.findAll('dayPlan'),
-  //     veggies: this.store.findQuery('food', {
-  //     'foodCategory': 'vegetable'
-  //     })
-  //   });
-  // },
+
 
   /*
   make a dynamic day plan route
@@ -62,9 +54,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       // return model;
       // }
       // }),
-       veggies: this.store.findQuery('food', {
-      'foodCategory': 'vegetable'
-      }),
+
 
       // .then(function(model){
       // if(Ember.isEmpty(model.dayPlan)) {
@@ -74,22 +64,27 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       // return model;
       // }
       // })
-      // protein: this.store.findQuery('food', {
-      // 'foodCategory': 'protein'
-      // }),
 
-      // carb: this.store.findQuery('food', {
-      // 'foodCategory': 'carb'
-      // }),
-      // fruit: this.store.findQuery('food', {
-      // 'foodCategory': 'fruit'
-      // }),
-      // dairy: this.store.findQuery('food', {
-      // 'foodCategory': 'dairy'
-      // }),
-      // other: this.store.findQuery('food', {
-      // 'foodCategory': 'other'
-      // })
+
+      veggies: this.store.findQuery('food', {
+      'foodCategory': 'vegetable'
+      }),
+      protein: this.store.findQuery('food', {
+      'foodCategory': 'protein'
+      }),
+
+      carb: this.store.findQuery('food', {
+      'foodCategory': 'carb'
+      }),
+      fruit: this.store.findQuery('food', {
+      'foodCategory': 'fruit'
+      }),
+      dairy: this.store.findQuery('food', {
+      'foodCategory': 'dairy'
+      }),
+      other: this.store.findQuery('food', {
+      'foodCategory': 'other'
+      })
       });
   },
 
@@ -105,32 +100,32 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.render('protein', {
       into: 'dayPlan',
       outlet: 'protein',
-      controller: 'veggies',
+      controller: 'protein',
       model: model.protein
     });
     this.render('carb', {
       into: 'dayPlan',
       outlet: 'carb',
-      controller: 'veggies',
-      model: model.protein
+      controller: 'carb',
+      model: model.carb
     });
     this.render('fruit', {
       into: 'dayPlan',
       outlet: 'fruit',
-      controller: 'veggies',
-      model: model.protein
+      controller: 'fruit',
+      model: model.fruit
     });
     this.render('dairy', {
       into: 'dayPlan',
       outlet: 'dairy',
-      controller: 'veggies',
-      model: model.protein
+      controller: 'dairy',
+      model: model.dairy
     });
     this.render('other', {
       into: 'dayPlan',
       outlet: 'other',
-      controller: 'veggies',
-      model: model.protein
+      controller: 'other',
+      model: model.other
     });
 
 

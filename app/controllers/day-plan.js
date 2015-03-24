@@ -23,11 +23,6 @@ export default Ember.Controller.extend({
   timeSince: ago('date', true),
 
   format: "LL",
-  formattedDate: function() {
-    var date = this.get('date'),
-      format = this.get('format');
-    return moment(date).format(format);
-  }.property('date', 'format'),
 
   isFavorite: false,
   amtUnit: [ "items", "g", "oz", "tsp", "Tbsp",
@@ -65,6 +60,8 @@ export default Ember.Controller.extend({
       });
 
     },
+
+
 //     Date.prototype.getDate()
 //   gets day 1-31 of month
 
@@ -158,12 +155,11 @@ export default Ember.Controller.extend({
 
     selectVeggie: function(){
       console.log('Its a ...' + this.veggieButton);
-      // this.transitionToRoute('veggies');
-      // this.disconnectOutlet({
-      //   outlet: 'protein',
-      //   parentView: 'dayPlan'
-      // });
-
+      if(this.isShowingVeggies){
+        this.set('this.isShowingVeggies', false );
+      } else {
+        this.set('this.isShowingVeggies', true );
+      }
     },
 
     selectProtein: function(){
@@ -216,13 +212,13 @@ export default Ember.Controller.extend({
     showDetails: function(){
 
     },
-    showSelectedFoods: function(){
-      console.log('showSelectedFoods');
-      var mealFoods = this.get('controllers.food.mealFoods');
-      this.set('dayPlanSelectedFoods', mealFoods);
-      console.log('dayPlanSelectedFood' + this.dayPlanSelectedFoods);
-    }.observes('controllers.food.mealFoods').on('change')
-  },
+  //   showSelectedFoods: function(){
+  //     console.log('showSelectedFoods');
+  //     var mealFoods = this.get('controllers.food.mealFoods');
+  //     this.set('dayPlanSelectedFoods', mealFoods);
+  //     console.log('dayPlanSelectedFood' + this.dayPlanSelectedFoods);
+  //   }.observes('controllers.food.mealFoods').on('change')
+  // },
 
   deleteFood: function(){
       console.log('deleteSelectedFood please');
@@ -230,8 +226,10 @@ export default Ember.Controller.extend({
       // var food = this.mealFoods.findBy('name', name);
       // this.mealFoods.removeObject(food);
       // console.log(this.mealFoods);
-    }
-});
+  }
+
+  }
+})
 
 
 //{{input type="date" class="menu_date"  value=chosenDate }}

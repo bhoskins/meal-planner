@@ -157,12 +157,13 @@ export default Ember.Controller.extend({
     },
 
     selectVeggie: function(){
-      console.log('its a veggie');
-      if(this.isShowingVeggies){
-        this.set('this.isShowingVeggies', false );
-      } else {
-        this.set('this.isShowingVeggies', true );
-      }
+      console.log('Its a ...' + this.veggieButton);
+      // this.transitionToRoute('veggies');
+      // this.disconnectOutlet({
+      //   outlet: 'protein',
+      //   parentView: 'dayPlan'
+      // });
+
     },
 
     selectProtein: function(){

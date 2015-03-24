@@ -4,7 +4,7 @@ import { moment, ago } from 'ember-moment/computed';
 export default Ember.Controller.extend({
   needs: ['veggies', 'food'],
   dayPlanSelectedFoods: [],
-  selectedMealDisplay: "",
+  selectedMealDisplay: "Breakfast",
   breakfast: "",
   veggieButton: "Veggie",
   proteinButton: 'Protein',
@@ -13,6 +13,12 @@ export default Ember.Controller.extend({
   dairyButton: 'Dairy',
   otherButton: 'Other',
   date: new Date(),
+  isShowingVeggies: false,
+  isShowingProtein: false,
+  isShowingCarb: false,
+  isShowingFruit: false,
+  isShowingDairy: false,
+  isShowingOther: false,
   // shortdate: moment('date', 'MM/DD/YYYY'),
   timeSince: ago('date', true),
 
@@ -40,15 +46,23 @@ export default Ember.Controller.extend({
     loadDayPlan: function(){
       console.log('loadDayPlan fired');
 
-      console.log(this.date);
-      var dateSplit = (this.date).split("-");
+      console.log('mydate is ' + this.mydate);
+      var dateSplit = (this.mydate).split("-");
       console.log('year is ' + dateSplit[0]);
       console.log('month is ' + dateSplit[1]);
       console.log('date is ' + dateSplit[2]);
-      // this.store.findQuery('dayPlan', "date");
 
-
-
+      this.store.findQuery('dayPlan', {
+        'date': this.mydate
+      }).then(function(model){
+      if(Ember.isEmpty(model.dayPlan)) {
+        console.log('dayPlan empty');
+        model.dayPlan = this.store.createRecord('dayPlan');
+      } else {
+        console.log('dayPlan exists already');
+      return model;
+      }
+      })
 
     },
 //     Date.prototype.getDate()
@@ -151,58 +165,54 @@ export default Ember.Controller.extend({
       // });
 
     },
+
     selectProtein: function(){
       console.log('Its a ...' + this.proteinButton);
-      this.transitionToRoute('protein');
+     if(this.isShowingProtein){
+        this.set('this.isShowingProtein', false );
+      } else {
+        this.set('this.isShowingProtein', true );
+      }
     },
+
     selectCarb: function(){
       console.log('Its a ...' + this.carbButton);
-      this.transitionToRoute('carb');
+      if(this.isShowingCarb){
+        this.set('this.isShowingCarb', false );
+      } else {
+        this.set('this.isShowingCarb', true );
+      }
     },
     selectFruit: function(){
       console.log('Its a ...' + this.fruitButton);
-      this.transitionToRoute('fruit');
+      if(this.isShowingFruit){
+        this.set('this.isShowingFruit', false );
+      } else {
+        this.set('this.isShowingFruit', true );
+      }
     },
     selectDairy: function(){
       console.log('Its a ...' + this.dairyButton);
-      this.transitionToRoute('dairy');
+      if(this.isShowingDairy){
+        this.set('this.isShowingDairy', false );
+      } else {
+        this.set('this.isShowingDairy', true );
+      }
     },
     selectOther: function(){
       console.log('Its a ...' + this.otherButton);
-      this.transitionToRoute('other');
+      if(this.isShowingOther){
+        this.set('this.isShowingOther', false );
+      } else {
+        this.set('this.isShowingOther', true );
+      }
     },
-    // addFoods: function(){
-    //   if (this.isFavorite === true){
-    //   console.log('Asparagus is a favorite');
-    //   var name = Ember.$('.food-item').text();
-    //   var amt = Ember.$('input.amt-input').val();
-    //   var amtUnit = Ember.$('select.amt-unit').val();
-    //   console.log("name: " + name);
-    //   console.log("amt: " + amt);
-    //   console.log("amtUnit: " + amtUnit);
-    //   var selectedFood = {
-    //     name: name,
-    //     amt: amt,
-    //     amtUnit: amtUnit
-    //   };
-    //   this.selectedFoods.push(selectedFood);
-    //   // (this.selectedFoods).each(function(index, item){
-    //   //   console.log(item);
-    //   // });
 
-    // }else{
-    //   this.set('isSelected', false);
-    //   return;
-    // }
-    // },
     addFood: function(food){
       this.get('dayPlanSelectedFoods').pushObject(food);
       this.transitionToRoute('dayPlan');
     },
-    pickFood: function() {
 
-
-    },
     showDetails: function(){
 
     },
@@ -212,7 +222,15 @@ export default Ember.Controller.extend({
       this.set('dayPlanSelectedFoods', mealFoods);
       console.log('dayPlanSelectedFood' + this.dayPlanSelectedFoods);
     }.observes('controllers.food.mealFoods').on('change')
-  }
+  },
+
+  deleteFood: function(){
+      console.log('deleteSelectedFood please');
+      // var name = this.get('model.foodName');
+      // var food = this.mealFoods.findBy('name', name);
+      // this.mealFoods.removeObject(food);
+      // console.log(this.mealFoods);
+    }
 });
 
 

@@ -12,7 +12,9 @@ module.exports = function(environment) {
 
     'simple-auth': {
       authorizer: 'authorizer:parse',
-      crossOriginWhitelist: ['https://api.parse.com']
+      crossOriginWhitelist: ['https://api.parse.com'],
+      routeAfterAuthentication: 'day-plan',
+      // routeIfAlreadyAuthenticated: 'dayPlan'
     },
 
     parseKeys: {

@@ -57,7 +57,8 @@
     Add Food Item
   </h2>
 
-  <button class="food-cat-button" {{action 'selectVeggie' class="veggieButton" }} >
+{{!  'selectVeggie'}}
+  <button class="food-cat-button" {{action 'selectVeggie' class="veggieButton" value=isShowing }} >
     <span class="veggie-button">Veggie</span>
   </button>
 
@@ -87,9 +88,36 @@
 
 {{outlet}}
 
-{{outlet 'selectFood'}}
-{{outlet 'veggies'}}
-{{outlet 'protein'}}
+<div
+{{ bind-attr class="isShowingVeggies:show-veggies:hide-veggies" }}>
+  {{outlet 'veggies'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingProtein:show-protein:hide-protein" }} >
+  {{outlet 'protein'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingCarb:show-carb:hide-carb" }} >
+  {{outlet 'carb'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingFruit:show-fruit:hide-fruit" }} >
+  {{outlet 'fruit'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingDairy:show-dairy:hide-dairy" }} >
+  {{outlet 'dairy'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingOther:show-other:hide-other" }} >
+  {{outlet 'other'}}
+</div>
+
 {{outlet 'meal'}}
 
 <h1 class="selected-meal"> {{selectedMealDisplay}}</h1>
@@ -100,6 +128,10 @@
     {{input type='number' min="0" step="0.25" value=item.amt}}
     {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
     {{item.name}}
+
+    <button class="delete-food-button delete-food" {{action 'deleteFood'}}>
+    X
+    </button>
 
   </li>
 {{/each}}

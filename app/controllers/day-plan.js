@@ -13,6 +13,12 @@ export default Ember.Controller.extend({
   dairyButton: 'Dairy',
   otherButton: 'Other',
   date: new Date(),
+  isShowingVeggies: false,
+  isShowingProtein: false,
+  isShowingCarb: false,
+  isShowingFruit: false,
+  isShowingDairy: false,
+  isShowingOther: false,
   // shortdate: moment('date', 'MM/DD/YYYY'),
   timeSince: ago('date', true),
 
@@ -143,33 +149,54 @@ export default Ember.Controller.extend({
     },
 
     selectVeggie: function(){
-      console.log('Its a ...' + this.veggieButton);
-      // this.transitionToRoute('veggies');
-      // this.disconnectOutlet({
-      //   outlet: 'protein',
-      //   parentView: 'dayPlan'
-      // });
-
+      console.log('its a veggie');
+      if(this.isShowingVeggies){
+        this.set('this.isShowingVeggies', false );
+      } else {
+        this.set('this.isShowingVeggies', true );
+      }
     },
+
     selectProtein: function(){
       console.log('Its a ...' + this.proteinButton);
-      this.transitionToRoute('protein');
+     if(this.isShowingProtein){
+        this.set('this.isShowingProtein', false );
+      } else {
+        this.set('this.isShowingProtein', true );
+      }
     },
+
     selectCarb: function(){
       console.log('Its a ...' + this.carbButton);
-      this.transitionToRoute('carb');
+      if(this.isShowingCarb){
+        this.set('this.isShowingCarb', false );
+      } else {
+        this.set('this.isShowingCarb', true );
+      }
     },
     selectFruit: function(){
       console.log('Its a ...' + this.fruitButton);
-      this.transitionToRoute('fruit');
+      if(this.isShowingFruit){
+        this.set('this.isShowingFruit', false );
+      } else {
+        this.set('this.isShowingFruit', true );
+      }
     },
     selectDairy: function(){
       console.log('Its a ...' + this.dairyButton);
-      this.transitionToRoute('dairy');
+      if(this.isShowingDairy){
+        this.set('this.isShowingDairy', false );
+      } else {
+        this.set('this.isShowingDairy', true );
+      }
     },
     selectOther: function(){
       console.log('Its a ...' + this.otherButton);
-      this.transitionToRoute('other');
+      if(this.isShowingOther){
+        this.set('this.isShowingOther', false );
+      } else {
+        this.set('this.isShowingOther', true );
+      }
     },
     // addFoods: function(){
     //   if (this.isFavorite === true){

@@ -19,6 +19,26 @@ li, a {
 /***************************************
     Veggies Template Styles Below
 ***************************************/
+.show-veggies,
+.show-protein,
+.show-fruit,
+.show-carbs,
+.show-dairy,
+.show-other {
+  display: block;
+}
+
+.hide-veggies,
+.hide-protein,
+.hide-fruit,
+.hide-carbs,
+.hide-dairy,
+.hide-other {
+  display: none;
+}
+
+
+
 .section-header {
   text-align: center;
 }

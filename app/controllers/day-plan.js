@@ -62,7 +62,7 @@ export default Ember.Controller.extend({
         console.log('dayPlan exists already');
       return model;
       }
-      })
+      });
 
     },
 //     Date.prototype.getDate()

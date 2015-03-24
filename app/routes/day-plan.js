@@ -64,7 +64,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       // }),
        veggies: this.store.findQuery('food', {
       'foodCategory': 'vegetable'
-      })
+      }),
 
       // .then(function(model){
       // if(Ember.isEmpty(model.dayPlan)) {
@@ -73,6 +73,22 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       // } else {
       // return model;
       // }
+      // })
+      // protein: this.store.findQuery('food', {
+      // 'foodCategory': 'protein'
+      // }),
+
+      // carb: this.store.findQuery('food', {
+      // 'foodCategory': 'carb'
+      // }),
+      // fruit: this.store.findQuery('food', {
+      // 'foodCategory': 'fruit'
+      // }),
+      // dairy: this.store.findQuery('food', {
+      // 'foodCategory': 'dairy'
+      // }),
+      // other: this.store.findQuery('food', {
+      // 'foodCategory': 'other'
       // })
       });
   },
@@ -92,6 +108,31 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       controller: 'veggies',
       model: model.protein
     });
+    this.render('carb', {
+      into: 'dayPlan',
+      outlet: 'carb',
+      controller: 'veggies',
+      model: model.protein
+    });
+    this.render('fruit', {
+      into: 'dayPlan',
+      outlet: 'fruit',
+      controller: 'veggies',
+      model: model.protein
+    });
+    this.render('dairy', {
+      into: 'dayPlan',
+      outlet: 'dairy',
+      controller: 'veggies',
+      model: model.protein
+    });
+    this.render('other', {
+      into: 'dayPlan',
+      outlet: 'other',
+      controller: 'veggies',
+      model: model.protein
+    });
+
 
   },
 

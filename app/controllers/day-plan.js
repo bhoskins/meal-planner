@@ -242,8 +242,8 @@ export default Ember.Controller.extend({
     },
 
     addFood: function(food){
-      var meal = this.get('this.selectedMeal');
-      console.log('selectedMeal is ' + this.selectedMeal);
+      // var meal = this.get('this.selectedMeal');
+      // console.log('selectedMeal is ' + this.selectedMeal);
       this.get('model.breakfast').pushObject(food);
       // this.get('model[meal]').pushObject(food);
       this.transitionToRoute('dayPlan');
@@ -252,13 +252,6 @@ export default Ember.Controller.extend({
     showDetails: function(){
 
     },
-  //   showSelectedFoods: function(){
-  //     console.log('showSelectedFoods');
-  //     var mealFoods = this.get('controllers.food.mealFoods');
-  //     this.set('dayPlanSelectedFoods', mealFoods);
-  //     console.log('dayPlanSelectedFood' + this.dayPlanSelectedFoods);
-  //   }.observes('controllers.food.mealFoods').on('change')
-  // },
 
   deleteFood: function(food){
       console.log('deleteSelectedFood please', food);

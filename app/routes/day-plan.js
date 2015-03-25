@@ -45,7 +45,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return Ember.RSVP.hash({
       dayPlan: this.store.findQuery('dayPlan', {
         'date': params.date
-    }),
+        }),
       // .then(function(model){
       // if(Ember.isEmpty(model.dayPlan)) {
       //   console.log('dayPlan empty');
@@ -127,12 +127,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       controller: 'other',
       model: model.other
     });
-
-
   },
 
   setupController: function(controller, model) {
-    controller.set('model', model.dayPlan);
+    var dayPlan = Ember.isEmpty(model.dayPlan) ? this.store.createRecord('dayPlan') : model.dayPlan[0];
+    controller.set('model', dayPlan);
   }
 
 

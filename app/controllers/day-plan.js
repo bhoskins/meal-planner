@@ -3,7 +3,7 @@ import { moment, ago } from 'ember-moment/computed';
 
 export default Ember.Controller.extend({
   needs: ['veggies', 'food'],
-  dayPlanSelectedFoods: [],
+  // dayPlanSelectedFoods: [],
   selectedMealDisplay: "Breakfast",
   breakfast: "",
   veggieButton: "Veggie",
@@ -101,9 +101,10 @@ export default Ember.Controller.extend({
       dayPlan = {
         user: 'current_user',
         date: this.date,
-        breakfast: [{"amt": 5, "amtUnit": "item", "name": "bagel"},
-          {"amt": 5, "amtUnit": "Tbsp", "name": "cream cheese"}
-      ]
+        breakfast: this.get('model.breakfast')
+      //   breakfast: [{"amt": 5, "amtUnit": "item", "name": "bagel"},
+      //     {"amt": 5, "amtUnit": "Tbsp", "name": "cream cheese"}
+      // ]
     };
       this.store.save('dayPlan', dayPlan);
       // alert('Great Job! The meals for this day are saved.');
@@ -207,13 +208,7 @@ export default Ember.Controller.extend({
     },
 
     addFood: function(food){
-      this.get('dayPlanSelectedFoods').pushObject(food);
-      var key = this.selectedMeal;
-
-
-
-
-
+      this.get('model.breakfast').pushObject(food);
       this.transitionToRoute('dayPlan');
     },
 

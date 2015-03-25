@@ -1,5 +1,5 @@
 <div id="page-wrap">
-
+{{log model}}
 <h1 class="section-heading">Day Plan</h1>
 
 
@@ -20,32 +20,32 @@
 {{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
 <div class="meal-type nav">
 
-  <button value=model.breakfast
+  <button
     {{action 'pickBreakfast' }}>
     Breakfast
   </button>
 
-  <button value=model.snack1
+  <button
     {{action 'pickSnack1' }}>
     Snack 1
   </button>
 
-  <button value=model.lunch
+  <button
     {{action 'pickLunch' }}>
     Lunch
   </button>
 
-  <button value=model.snack2
+  <button
     {{action 'pickSnack2' }}>
     Snack 2
   </button>
 
-  <button value=model.dinner
+  <button
     {{action 'pickDinner' }}>
     Dinner
   </button>
 
-  <button value=model.other
+  <button
     {{action 'pickOther' }}>
     Other
   </button>
@@ -128,7 +128,7 @@
 <h1 class="selected-meal"> {{selectedMealDisplay}}</h1>
 
 <ul>
-{{#each item in this.dayPlanSelectedFoods}}
+{{#each item in model.breakfast}}
   <li>
     {{input type='number' min="0" step="0.25" value=item.amt}}
     {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}

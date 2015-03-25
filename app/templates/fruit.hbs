@@ -1,1 +1,63 @@
 {{outlet}}
+
+<div class="section-wrap">
+  <h1 class="section-header">
+    Fruit
+  </h1>
+
+  <!-- @@@@@@@@@@@@@@@@@@@
+      headings
+@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+  <div class="food-heading-wrap">
+    <p class="food-heading selected-food">
+      Sel</p>
+    <p class="food-heading amt-input">Amt</p>
+    <p class="food-heading amt-unit">
+      Unit</p>
+    <p class="food-heading food-item-heading">Name</p>
+    <p class="food-heading is-favorite">Fav</p>
+    <p class="food-heading add-food">Add</p>
+  </div><!-- .food-heading-wrap -->
+
+<button {{ action 'customFood'}}>
+  Custom
+</button>
+
+<ul>
+{{#each foodController in model itemController="food" }}
+<form>
+  <li>
+
+  <div class="food-item-div">
+
+    {{input type="number" class="amt-input food-line" name="Amt" value=foodController.selectedAmt min="0" step="0.25"}}
+
+    {{view "select"
+    class="amt-unit food-line" content=foodController.amtUnit value=foodController.selectedAmtUnit }}
+
+    <p class="veggie-item food-item food-line" {{action 'showDetails' on="click" value=foodController.model.name}} >
+      {{foodController.model.foodName}}
+    </p>
+
+
+    {{input type="checkbox" class="is-favorite food-line text-align-right" checked=foodController.model.isFavorite action=isFavAction }}
+
+    <button type='submit' class="add-food-button add-food food-line text-align-right" {{action 'addFood' }}>
+      +
+    </button>
+
+
+  </div><!-- .food-item-div -->
+
+    </li>
+  </form>
+
+    {{/each}}
+  </ul>
+
+
+
+
+
+</div><!-- .section-wrap -->

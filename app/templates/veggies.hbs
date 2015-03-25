@@ -16,7 +16,6 @@
     <p class="food-heading amt-unit">
       Unit</p>
     <p class="food-heading food-item-heading">Name</p>
-    <p class="food-heading is-favorite">Fav</p>
     <p class="food-heading add-food">Add</p>
   </div><!-- .food-heading-wrap -->
 
@@ -39,9 +38,6 @@
     <p class="veggie-item food-item food-line" {{action 'showDetails' on="click" value=foodController.model.name}} >
       {{foodController.model.foodName}}
     </p>
-
-
-    {{input type="checkbox" class="is-favorite food-line text-align-right" checked=foodController.model.isFavorite action=isFavAction }}
 
     <button type='submit' class="add-food-button add-food food-line text-align-right" {{action 'addFood' }}>
       +

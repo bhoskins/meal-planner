@@ -20,35 +20,53 @@
 {{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
 <div class="meal-type nav">
 
-  <button
-    {{action 'pickBreakfast' }}>
-    Breakfast
-  </button>
+<div
+  {{ bind-attr class="isShowingBreakfast:show-breakfast:hide-breakfast" }} >
+    <button
+      {{action 'pickBreakfast' }}>
+      Breakfast
+    </button>
+  </div>
 
+<div
+  {{ bind-attr class="isShowingSnack1:show-snack1:hide-snack1" }} >
   <button
     {{action 'pickSnack1' }}>
     Snack 1
   </button>
+</div>
 
+<div
+  {{ bind-attr class="isShowingLunch:show-lunch:hide-lunch" }} >
   <button
     {{action 'pickLunch' }}>
     Lunch
   </button>
+</div>
 
+<div
+  {{ bind-attr class="isShowingSnack2:show-snack2:hide-snack2" }} >
   <button
     {{action 'pickSnack2' }}>
     Snack 2
   </button>
+</div>
 
+<div
+  {{ bind-attr class="isShowingDinner:show-dinner:hide-dinner" }} >
   <button
     {{action 'pickDinner' }}>
     Dinner
   </button>
+</div>
 
+<div
+  {{ bind-attr class="isShowingOther:show-other" }} >
   <button
     {{action 'pickOther' }}>
     Other
   </button>
+</div>
 
 </div><!-- .meal-type .nav -->
 
@@ -142,7 +160,9 @@
 {{/each}}
 </ul>
 
-<div class="hide-snack1">
+
+<div
+  {{ bind-attr class="isShowingSnack1:show-snack1:hide-snack1" }} >
   <h1 class="selected-meal"> Snack 1</h1>
 
   <ul>
@@ -161,7 +181,8 @@
   </ul>
 </div><!-- .hide/show-snack1 -->
 
-<div class="hide-lunch">
+<div
+  {{ bind-attr class="isShowingLunch:show-lunch:hide-lunch" }} >
   <h1 class="selected-meal">
   Lunch</h1>
 
@@ -181,7 +202,8 @@
   </ul>
 </div><!-- .hide/show-lunch -->
 
-<div class="hide-snack2">
+<div
+  {{ bind-attr class="isShowingSnack2:show-snack2:hide-snack2" }} >
   <h1 class="selected-meal">
   Snack2</h1>
 
@@ -201,7 +223,8 @@
   </ul>
 </div><!-- .hide/show-snack2 -->
 
-<div class="hide-dinner">
+<div
+  {{ bind-attr class="isShowingDinner:show-dinner:hide-dinner" }} >
   <h1 class="selected-meal">
   Dinner</h1>
 
@@ -221,7 +244,9 @@
   </ul>
 </div><!-- .hide/show-dinner -->
 
-<div class="hide-other">
+<div
+  {{ bind-attr class="isShowingOther:show-other:hide-other" }}
+>
   <h1 class="selected-meal">
   Other</h1>
 

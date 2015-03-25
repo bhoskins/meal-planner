@@ -126,7 +126,10 @@
 
 {{outlet 'meal'}}
 
-<h1 class="selected-meal"> {{selectedMealDisplay}}</h1>
+
+  <h1 class="selected-meal">
+    Breakfast
+  </h1>
 
 <ul>
 {{#each item in model.breakfast}}
@@ -228,7 +231,7 @@
 </div><!-- .hide/show-dinner -->
 
 <div
-  {{ bind-attr class="isShowingOther:show-other:hide-other" }}
+  {{ bind-attr class="isShowingOtherMeal:show-other:hide-other" }}
 >
   <h1 class="selected-meal">
   Other</h1>

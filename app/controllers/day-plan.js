@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
   // dayPlanSelectedFoods: [],
   selectedMeal: "breakfast",
   selectedMealDisplay: "Breakfast",
-  breakfast: "",
   veggieButton: "Veggie",
   proteinButton: 'Protein',
   carbButton: 'Carb',

@@ -19,6 +19,12 @@ export default Ember.Controller.extend({
   isShowingFruit: false,
   isShowingDairy: false,
   isShowingOther: false,
+  isShowingBreakfast: false,
+  isShowingSnack1: false,
+  isShowingLunch: false,
+  isShowingSnack2: false,
+  isShowingDinner: false,
+  isShowingOther: false,
   // shortdate: moment('date', 'MM/DD/YYYY'),
   timeSince: ago('date', true),
 

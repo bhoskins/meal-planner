@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
   isShowingLunch: false,
   isShowingSnack2: false,
   isShowingDinner: false,
-  isShowingOther: false,
+  isShowingOtherMeal: false,
   // shortdate: moment('date', 'MM/DD/YYYY'),
   timeSince: ago('date', true),
 
@@ -129,37 +129,67 @@ export default Ember.Controller.extend({
       this.set('selectedMealDisplay', 'Breakfast');
       console.log(this.selectedMeal);
       this.set('this[selectedMeal]', this.selectedFoods);
-      console.log('')
+      console.log('');
+      if(this.isShowingBreakfast){
+        this.set('this.isShowingBreakfast', false );
+      } else {
+        this.set('this.isShowingBreakfast', true );
+      }
     },
 
     pickSnack1: function(){
       this.set('selectedMeal', 'snack1');
       this.set('selectedMealDisplay', 'Snack 1');
       console.log(this.selectedMeal);
+      if(this.isShowingSnack1){
+        this.set('this.isShowingSnack1', false );
+      } else {
+        this.set('this.isShowingSnack1', true );
+      }
     },
 
     pickLunch: function(){
       this.set('selectedMeal', 'lunch');
       this.set('selectedMealDisplay', 'Lunch');
       console.log(this.selectedMeal);
+      if(this.isShowingLunch){
+        this.set('this.isShowingLunch', false );
+      } else {
+        this.set('this.isShowingLunch', true );
+      }
     },
 
     pickSnack2: function(){
       this.set('selectedMeal', 'snack2');
       this.set('selectedMealDisplay', 'Snack 2');
       console.log(this.selectedMeal);
+      if(this.isShowingSnack2){
+        this.set('this.isShowingSnack2', false );
+      } else {
+        this.set('this.isShowingSnack2', true );
+      }
     },
 
     pickDinner: function(){
       this.set('selectedMeal', 'dinner');
       this.set('selectedMealDisplay', 'Dinner');
       console.log(this.selectedMeal);
+      if(this.isShowingDinner){
+        this.set('this.isShowingDinner', false );
+      } else {
+        this.set('this.isShowingDinner', true );
+      }
     },
 
     pickOther: function(){
       this.set('selectedMeal', 'other');
       this.set('selectedMealDisplay', 'Other');
       console.log(this.selectedMeal);
+      if(this.isShowingOtherMeal){
+        this.set('this.isShowingOtherMeal', false );
+      } else {
+        this.set('this.isShowingOtherMeal', true );
+      }
     },
 
     selectVeggie: function(){

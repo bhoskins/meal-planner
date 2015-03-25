@@ -20,53 +20,36 @@
 {{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
 <div class="meal-type nav">
 
-<div
-  {{ bind-attr class="isShowingBreakfast:show-breakfast:hide-breakfast" }} >
+
     <button
       {{action 'pickBreakfast' }}>
       Breakfast
     </button>
-  </div>
 
-<div
-  {{ bind-attr class="isShowingSnack1:show-snack1:hide-snack1" }} >
   <button
     {{action 'pickSnack1' }}>
     Snack 1
   </button>
-</div>
 
-<div
-  {{ bind-attr class="isShowingLunch:show-lunch:hide-lunch" }} >
   <button
     {{action 'pickLunch' }}>
     Lunch
   </button>
-</div>
 
-<div
-  {{ bind-attr class="isShowingSnack2:show-snack2:hide-snack2" }} >
   <button
     {{action 'pickSnack2' }}>
     Snack 2
   </button>
-</div>
 
-<div
-  {{ bind-attr class="isShowingDinner:show-dinner:hide-dinner" }} >
   <button
     {{action 'pickDinner' }}>
     Dinner
   </button>
-</div>
 
-<div
-  {{ bind-attr class="isShowingOther:show-other" }} >
   <button
     {{action 'pickOther' }}>
     Other
   </button>
-</div>
 
 </div><!-- .meal-type .nav -->
 

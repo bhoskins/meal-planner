@@ -68,6 +68,12 @@ h3 {
 .show-fruit,
 .show-carbs,
 .show-dairy,
+.show-other,
+.show-breakfast,
+.show-snack1,
+.show-lunch,
+.show-snack2,
+.show-dinner,
 .show-other {
   display: block;
 }
@@ -77,6 +83,12 @@ h3 {
 .hide-fruit,
 .hide-carbs,
 .hide-dairy,
+.hide-other,
+.hide-breakfast,
+.hide-snack1,
+.hide-lunch,
+.hide-snack2,
+.hide-dinner,
 .hide-other {
   display: none;
 }

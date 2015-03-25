@@ -52,12 +52,8 @@ export default Ember.Controller.extend({
       var amtUnit = this.get('this.selectedAmtUnit');
 
       if ((amt) === 0  ){
-        // || (this.mealFoods).length > 0
         return;
       } else {
-      //   // console.log("name: " + name);
-      //   // console.log("amt: " + amt);
-      //   // console.log("amtUnit: " + amtUnit);
 
         var selectedFood = {
           name: name,
@@ -70,7 +66,6 @@ export default Ember.Controller.extend({
       //   this.get('controllers.dayPlan').send('showSelectedFoods');
       //   console.log('food controller this.mealFoods' + this.mealFoods);
         this.get('controllers.dayPlan').send('addFood', selectedFood);
-        // this.transitionToRoute('dayPlan');
       }
     },
 

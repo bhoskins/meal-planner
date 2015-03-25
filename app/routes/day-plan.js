@@ -1,3 +1,4 @@
+
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 import Ember from 'ember';
 
@@ -42,6 +43,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   // },
 
   model: function(params) {
+    this.set('date', params.date);
     return Ember.RSVP.hash({
       dayPlan: this.store.findQuery('dayPlan', {
         'date': params.date
@@ -130,7 +132,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
   setupController: function(controller, model) {
-    var dayPlan = Ember.isEmpty(model.dayPlan) ? this.store.createRecord('dayPlan') : model.dayPlan[0];
+    var date = this.get('date');
+    var dayPlan = Ember.isEmpty(model.dayPlan) ? this.store.createRecord('dayPlan', {date: date}) : model.dayPlan[0];
     controller.set('model', dayPlan);
   }
 

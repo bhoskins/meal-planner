@@ -6,6 +6,12 @@ export default Ember.Controller.extend({
   // dayPlanSelectedFoods: [],
   selectedMeal: "breakfast",
   selectedMealDisplay: "Breakfast",
+  breakfast: [],
+  snack1: [],
+  lunch: [],
+  snack2: [],
+  dinner: [],
+  other: [],
   veggieButton: "Veggie",
   proteinButton: 'Protein',
   carbButton: 'Carb',
@@ -91,36 +97,8 @@ export default Ember.Controller.extend({
     },
 
     createMeal: function() {
-      console.log('createMeal');
-      console.log("this.date is " + this.date);
-
-      // var key = this.selectedMeal;
-      var dayPlan = {};
-
-      // dayPlan = [{name: "bagel", amt: 0.5, amtUnit: "items"},
-      //     {name: "cream cheese", amt: 1, amtUnit: "oz"}
-      //   ];
-      // dayPlan[date] = this.date;
-
-      dayPlan = {
-        user: 'current_user',
-        date: this.date,
-        breakfast: this.get('model.breakfast')
-      //   breakfast: [{"amt": 5, "amtUnit": "item", "name": "bagel"},
-      //     {"amt": 5, "amtUnit": "Tbsp", "name": "cream cheese"}
-      // ]
-    };
-      this.store.save('dayPlan', dayPlan);
-      // alert('Great Job! The meals for this day are saved.');
-      var dayParse = Date.parse(this.date);
-      var prevDayMs = dayParse - (1000*60*60*24);
-      var prevDay = new Date(prevDayMs);
-      // (this.date).setTime(prevDayMs);
-      console.log('prevDay is ' + prevDay);
-      var nextDayParse = dayParse + (1000*60*60*24);
-      var nextDay = new Date(nextDayParse);
-      console.log('next Day is ' + nextDay);
-
+      var plan = this.get('model');
+      plan.save();
     },
     pickBreakfast: function(){
       this.set('selectedMeal', 'breakfast');
@@ -242,10 +220,8 @@ export default Ember.Controller.extend({
     },
 
     addFood: function(food){
-      // var meal = this.get('this.selectedMeal');
-      // console.log('selectedMeal is ' + this.selectedMeal);
-      this.get('model.breakfast').pushObject(food);
-      // this.get('model[meal]').pushObject(food);
+      var meal = this.get('this.selectedMeal');
+      this.get('model.' + meal).pushObject(food);
       this.transitionToRoute('dayPlan');
     },
 
@@ -253,14 +229,10 @@ export default Ember.Controller.extend({
 
     },
 
-  deleteFood: function(food){
-      console.log('deleteSelectedFood please', food);
-      this.get('dayPlanSelectedFoods').removeObject(food);
-      // var name = this.get('model.foodName');
-      // var food = this.mealFoods.findBy('name', name);
-      // this.mealFoods.removeObject(food);
-      // console.log(this.mealFoods);
-  },
+    deleteFood: function(food){
+      var meal = this.get('this.selectedMeal');
+      this.get('model.' + meal).removeObject(food);
+    },
 
     addCustomFood: function(){
       console.log('addCustomFood');

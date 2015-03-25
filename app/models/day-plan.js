@@ -15,5 +15,15 @@ export default Model.extend({
     }
 
     return data;
-  }
+  },
+
+  setDefaults: function(){
+    this.set('breakfast', this.get('breakfast') || []);
+  }.on('init')
+
+  // ,
+  //       this.set('snack1', this.get('snack1') || []);
+  // }.on('init'),
+
+
 });

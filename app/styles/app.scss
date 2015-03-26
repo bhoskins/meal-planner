@@ -39,6 +39,7 @@ body {
   display: relative;
   margin: 0 auto;
   width: 90%;
+  height: 600px;
   background: url('/assets/images/food.png') no-repeat;
   background-position: center center;
   background-size: cover;
@@ -189,10 +190,4 @@ h3 {
 }
 
 
-//600px image breakpoint
-@media screen and (min-width: 600px) {
-  background-image: url('assets/images/food-mobile.png') no-repeat;
-  background-position: center center;
-  background-size: cover;
-}
 

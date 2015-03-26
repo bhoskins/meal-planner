@@ -4,22 +4,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   needs: [ 'food'],
-  // actions: {
-  //   showModal: function(evt) {
-  //     this.render(evt.modalName, {
-  //       outlet: 'veggies',
-  //       into: 'dayPlan'
-  //     });
-  //   },
-  //   hideModal: function(evt) {
-  //     this.disconnectOutlet({
-  //       outlet: 'veggies',
-  //       parentView: 'dayPlan'
-  //     });
-  //   }
-  // },
-
-
 
   model: function(params) {
     this.set('date', params.date);

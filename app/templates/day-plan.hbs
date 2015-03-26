@@ -62,73 +62,9 @@
 
 </div><!-- .meal-type .nav -->
 
-
-  {{!-- @@@ Meal Category Select Below @@@@ --}}
-
-  <h2 class="food-category-heading">
-    Add Food
-  </h2>
-
-{{!  'selectVeggie'}}
-  <button class="food-cat-button" {{action 'selectVeggie' class="veggieButton" value=isShowing }} >
-    <span class="veggie-button">Veggie</span>
-  </button>
-
-  <button class="food-cat-button" {{action 'selectProtein'}} >
-    <span class="protein-button">Protein</span>
-  </button>
-
-  <button class="food-cat-button" {{action 'selectCarb'}} >
-    <span class="carb-button">Carb</span>
-  </button>
-
-  <button class="food-cat-button" {{action 'selectFruit'}} >
-    <span class="fruit-button">Fruit</span>
-  </button>
-
-  <button class="food-cat-button" {{action 'selectDairy'}} >
-    <span class="dairy-button">Dairy</span>
-  </button>
-
-  <button class="food-cat-button" {{action 'selectOther'}} >
-    <span class="other-button">Other</span>
-  </button>
-
-<!--@@@@@@@@@@@ Outlets @@@@@@@@@@@@@@@@-->
-
-{{outlet}}
-
-<div
-{{ bind-attr class="isShowingVeggies:show-veggies:hide-veggies" }}>
-  {{outlet 'veggies'}}
-</div>
-
-<div
-  {{ bind-attr class="isShowingProtein:show-protein:hide-protein" }} >
-  {{outlet 'protein'}}
-</div>
-
-<div
-  {{ bind-attr class="isShowingCarb:show-carb:hide-carb" }} >
-  {{outlet 'carb'}}
-</div>
-
-<div
-  {{ bind-attr class="isShowingFruit:show-fruit:hide-fruit" }} >
-  {{outlet 'fruit'}}
-</div>
-
-<div
-  {{ bind-attr class="isShowingDairy:show-dairy:hide-dairy" }} >
-  {{outlet 'dairy'}}
-</div>
-
-<div
-  {{ bind-attr class="isShowingOther:show-other:hide-other" }} >
-  {{outlet 'other'}}
-</div>
-
-{{outlet 'meal'}}
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+      Meals
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
 <div
   {{ bind-attr class="isShowingBreakfast:show-breakfast:hide-breakfast" }}
@@ -263,9 +199,78 @@
 </div><!-- .hide/show-other -->
 
 
-  <button type="submit" {{action 'createMeal'}} >
+  <button type="submit" class="save-meal-button" {{action 'createMeal'}} >
     Save Meal
   </button>
+
+
+  {{!-- @@@ Meal Category Select Below @@@@ --}}
+
+  <h2 class="food-category-heading">
+    Add Food
+  </h2>
+
+{{!  'selectVeggie'}}
+  <button class="food-cat-button" {{action 'selectVeggie' class="veggieButton" value=isShowing }} >
+    <span class="veggie-button">Veggie</span>
+  </button>
+
+  <button class="food-cat-button" {{action 'selectProtein'}} >
+    <span class="protein-button">Protein</span>
+  </button>
+
+  <button class="food-cat-button" {{action 'selectCarb'}} >
+    <span class="carb-button">Carb</span>
+  </button>
+
+  <button class="food-cat-button" {{action 'selectFruit'}} >
+    <span class="fruit-button">Fruit</span>
+  </button>
+
+  <button class="food-cat-button" {{action 'selectDairy'}} >
+    <span class="dairy-button">Dairy</span>
+  </button>
+
+  <button class="food-cat-button" {{action 'selectOther'}} >
+    <span class="other-button">Other</span>
+  </button>
+
+<!--@@@@@@@@@@@ Outlets @@@@@@@@@@@@@@@@-->
+
+{{outlet}}
+
+<div
+{{ bind-attr class="isShowingVeggies:show-veggies:hide-veggies" }}>
+  {{outlet 'veggies'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingProtein:show-protein:hide-protein" }} >
+  {{outlet 'protein'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingCarb:show-carb:hide-carb" }} >
+  {{outlet 'carb'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingFruit:show-fruit:hide-fruit" }} >
+  {{outlet 'fruit'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingDairy:show-dairy:hide-dairy" }} >
+  {{outlet 'dairy'}}
+</div>
+
+<div
+  {{ bind-attr class="isShowingOther:show-other:hide-other" }} >
+  {{outlet 'other'}}
+</div>
+
+{{outlet 'meal'}}
+
 
 </form>
 

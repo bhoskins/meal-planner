@@ -20,27 +20,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   // },
 
 
-  /*
-  make a dynamic day plan route
-  Note: you should return a single model from findQuery, probably*/
-
-  // model: function(params) {
-  //   return Ember.RSVP.hash({
-  //     dayPlan: this.store.findQuery('dayPlan', {
-  //       date: params.date
-  //     }),
-  //     veggies: this.store.findQuery('food', {
-  //     'foodCategory': 'vegetable'
-  //   }).then(function(model){
-  //     if(Ember.isEmpty(model.dayPlan)) {
-  //       console.log('dayPlan empty');
-  //       model.dayPlan = this.store.createRecord('dayPlan');
-  //     } else {
-  //     return model;
-  //     }
-  //     })
-  //   });
-  // },
 
   model: function(params) {
     this.set('date', params.date);
@@ -48,24 +27,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       dayPlan: this.store.findQuery('dayPlan', {
         'date': params.date
         }),
-      // .then(function(model){
-      // if(Ember.isEmpty(model.dayPlan)) {
-      //   console.log('dayPlan empty');
-      //   model.dayPlan = this.store.createRecord('dayPlan');
-      // } else {
-      // return model;
-      // }
-      // }),
 
-
-      // .then(function(model){
-      // if(Ember.isEmpty(model.dayPlan)) {
-      //   console.log('dayPlan empty');
-      //   model.dayPlan = this.store.createRecord('dayPlan');
-      // } else {
-      // return model;
-      // }
-      // })
 
 
       veggies: this.store.findQuery('food', {

@@ -15,11 +15,11 @@
     </h2>
   </div>
 
-{{date-picker date=mydate valueFormat='YYYY-MM-DD' format='MM-DD-YYYY'}}
+{{date-picker date=mydate valueFormat='YYYY-MM-DD' format='MMMM Do YYYY'}}
 
-  <button {{action 'createMeal'}}>
-    Load Meals
-  </button>
+  {{#link-to 'dayPlan' mydate}}
+    <button>Load Meals</button>
+  {{/link-to}}
 
 
 {{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
@@ -97,10 +97,10 @@
 >
   <h1 class="selected-meal"> Snack 1</h1>
 
-  <ul>
+  <ul class="meal-ul">
   {{#each item in model.snack1}}
-    <li>
-      {{input type='number' min="0" step="0.25" value=item.amt}}
+    <li class="neat1">
+      {{input type='number' min="0" step="0.25" value=item.amt }}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
       {{item.name}}
 

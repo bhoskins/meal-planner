@@ -33,13 +33,17 @@ $accent-color-green: RGBA(161, 190, 49, 1);
 // lighter-green
 $accent-color-light-green: RGBA(146, 190, 93, 1);
 
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
 
 
 body {
   display: relative;
   margin: 0 auto;
   width: 90%;
-  height: 600px;
   background: url('/assets/images/food.png') no-repeat;
   background-position: center center;
   background-size: cover;

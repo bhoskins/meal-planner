@@ -12,11 +12,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         'date': params.date
         }),
 
-
-
       veggies: this.store.findQuery('food', {
       'foodCategory': 'vegetable'
       }),
+
       protein: this.store.findQuery('food', {
       'foodCategory': 'protein'
       }),
@@ -24,12 +23,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       carb: this.store.findQuery('food', {
       'foodCategory': 'carb'
       }),
+
       fruit: this.store.findQuery('food', {
       'foodCategory': 'fruit'
       }),
+
       dairy: this.store.findQuery('food', {
       'foodCategory': 'dairy'
       }),
+
       other: this.store.findQuery('food', {
       'foodCategory': 'other'
       })

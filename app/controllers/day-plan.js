@@ -71,18 +71,6 @@ export default Ember.Controller.extend({
 
     // },
 
-
-//     Date.prototype.getDate()
-//   gets day 1-31 of month
-
-// Date.prototype.getDay()
-//   gets day of week: 0-6
-
-// Date.prototype.getFullYear()
-//   four digit year
-
-// Date.prototype.getMonth()
-//   0-11
     previousDay: function() {
       var dayParse = Date.parse(this.date);
       var prevDayMs = dayParse - (1000*60*60*24);

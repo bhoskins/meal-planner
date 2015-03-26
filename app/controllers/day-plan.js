@@ -111,8 +111,13 @@ export default Ember.Controller.extend({
       this.set('selectedMeal', 'breakfast');
       this.set('selectedMealDisplay', 'Breakfast');
       console.log(this.selectedMeal);
-      // this.set('this[selectedMeal]', this.selectedFoods);
-      // console.log('');
+
+      this.set('isShowingSnack1', false);
+      this.set('isShowingLunch', false);
+      this.set('isShowingSnack2', false);
+      this.set('isShowingDinner', false);
+      this.set('isShowingOtherMeal', false);
+
       if(this.isShowingBreakfast){
         this.set('this.isShowingBreakfast', false );
       } else {
@@ -124,6 +129,13 @@ export default Ember.Controller.extend({
       this.set('selectedMeal', 'snack1');
       this.set('selectedMealDisplay', 'Snack 1');
       console.log(this.selectedMeal);
+
+      this.set('isShowingBreakfast', false);
+      this.set('isShowingLunch', false);
+      this.set('isShowingSnack2', false);
+      this.set('isShowingDinner', false);
+      this.set('isShowingOtherMeal', false);
+
       if(this.isShowingSnack1){
         this.set('this.isShowingSnack1', false );
       } else {
@@ -135,6 +147,13 @@ export default Ember.Controller.extend({
       this.set('selectedMeal', 'lunch');
       this.set('selectedMealDisplay', 'Lunch');
       console.log(this.selectedMeal);
+
+      this.set('isShowingBreakfast', false);
+      this.set('isShowingSnack1', false);
+      this.set('isShowingSnack2', false);
+      this.set('isShowingDinner', false);
+      this.set('isShowingOtherMeal', false);
+
       if(this.isShowingLunch){
         this.set('this.isShowingLunch', false );
       } else {
@@ -146,6 +165,13 @@ export default Ember.Controller.extend({
       this.set('selectedMeal', 'snack2');
       this.set('selectedMealDisplay', 'Snack 2');
       console.log(this.selectedMeal);
+
+      this.set('isShowingBreakfast', false);
+      this.set('isShowingSnack1', false);
+      this.set('isShowingLunch', false);
+      this.set('isShowingDinner', false);
+      this.set('isShowingOtherMeal', false);
+
       if(this.isShowingSnack2){
         this.set('this.isShowingSnack2', false );
       } else {
@@ -157,6 +183,13 @@ export default Ember.Controller.extend({
       this.set('selectedMeal', 'dinner');
       this.set('selectedMealDisplay', 'Dinner');
       console.log(this.selectedMeal);
+
+      this.set('isShowingBreakfast', false);
+      this.set('isShowingSnack1', false);
+      this.set('isShowingLunch', false);
+      this.set('isShowingSnack2', false);
+      this.set('isShowingOtherMeal', false);
+
       if(this.isShowingDinner){
         this.set('this.isShowingDinner', false );
       } else {
@@ -168,6 +201,13 @@ export default Ember.Controller.extend({
       this.set('selectedMeal', 'other');
       this.set('selectedMealDisplay', 'Other');
       console.log(this.selectedMeal);
+
+      this.set('isShowingBreakfast', false);
+      this.set('isShowingSnack1', false);
+      this.set('isShowingLunch', false);
+      this.set('isShowingSnack2', false);
+      this.set('isShowingDinner', false);
+
       if(this.isShowingOtherMeal){
         this.set('this.isShowingOtherMeal', false );
       } else {
@@ -177,6 +217,12 @@ export default Ember.Controller.extend({
 
     selectVeggie: function(){
       console.log('Its a ...' + this.veggieButton);
+      this.set('isShowingProtein', false);
+      this.set('isShowingCarb', false);
+      this.set('isShowingFruit', false);
+      this.set('isShowingDairy', false);
+      this.set('isShowingOther', false);
+
       if(this.isShowingVeggies){
         this.set('this.isShowingVeggies', false );
       } else {
@@ -186,6 +232,11 @@ export default Ember.Controller.extend({
 
     selectProtein: function(){
       console.log('Its a ...' + this.proteinButton);
+      this.set('isShowingVeggies', false);
+      this.set('isShowingCarb', false);
+      this.set('isShowingFruit', false);
+      this.set('isShowingDairy', false);
+      this.set('isShowingOther', false);
      if(this.isShowingProtein){
         this.set('this.isShowingProtein', false );
       } else {
@@ -195,6 +246,11 @@ export default Ember.Controller.extend({
 
     selectCarb: function(){
       console.log('Its a ...' + this.carbButton);
+      this.set('isShowingVeggies', false);
+      this.set('isShowingProtein', false);
+      this.set('isShowingFruit', false);
+      this.set('isShowingDairy', false);
+      this.set('isShowingOther', false);
       if(this.isShowingCarb){
         this.set('this.isShowingCarb', false );
       } else {
@@ -203,6 +259,12 @@ export default Ember.Controller.extend({
     },
     selectFruit: function(){
       console.log('Its a ...' + this.fruitButton);
+      this.set('isShowingVeggies', false);
+      this.set('isShowingProtein', false);
+      this.set('isShowingCarb', false);
+      this.set('isShowingDairy', false);
+      this.set('isShowingOther', false);
+
       if(this.isShowingFruit){
         this.set('this.isShowingFruit', false );
       } else {
@@ -211,6 +273,11 @@ export default Ember.Controller.extend({
     },
     selectDairy: function(){
       console.log('Its a ...' + this.dairyButton);
+      this.set('isShowingVeggies', false);
+      this.set('isShowingProtein', false);
+      this.set('isShowingCarb', false);
+      this.set('isShowingFruit', false);
+      this.set('isShowingOther', false);
       if(this.isShowingDairy){
         this.set('this.isShowingDairy', false );
       } else {
@@ -219,6 +286,11 @@ export default Ember.Controller.extend({
     },
     selectOther: function(){
       console.log('Its a ...' + this.otherButton);
+      this.set('isShowingVeggies', false);
+      this.set('isShowingProtein', false);
+      this.set('isShowingCarb', false);
+      this.set('isShowingFruit', false);
+      this.set('isShowingDairy', false);
       if(this.isShowingOther){
         this.set('this.isShowingOther', false );
       } else {

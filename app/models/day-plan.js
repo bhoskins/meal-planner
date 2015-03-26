@@ -19,11 +19,11 @@ export default Model.extend({
 
   setDefaults: function(){
     this.set('breakfast', this.get('breakfast') || []);
-    this.set('snack1', []);
-    this.set('lunch', []);
-    this.set('snack2', []);
-    this.set('dinner', []);
-    this.set('other', []);
+    this.set('snack1', this.get('snack1') || []);
+    this.set('lunch', this.get('lunch') || []);
+    this.set('snack2', this.get('snack2') || []);
+    this.set('dinner', this.get('dinner') || []);
+    this.set('other', this.get('other') || []);
 
 
 

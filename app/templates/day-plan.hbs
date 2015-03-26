@@ -14,7 +14,7 @@
 
 {{date-picker date=mydate valueFormat='YYYY-MM-DD' format='MM-DD-YYYY'}}
 
-  <button {{action 'loadDayPlan'}}>
+  <button {{action 'createMeal'}}>
     Load Meals
   </button>
 
@@ -123,6 +123,9 @@
 
 {{outlet 'meal'}}
 
+<div
+  {{ bind-attr class="isShowingBreakfast:show-breakfast:hide-breakfast" }}
+>
 
   <h1 class="selected-meal">
     Breakfast
@@ -143,9 +146,12 @@
 {{/each}}
 </ul>
 
+</div>
+
 
 <div
-  {{ bind-attr class="isShowingSnack1:show-snack1:hide-snack1" }} >
+  {{ bind-attr class="isShowingSnack1:show-snack1:hide-snack1" }}
+>
   <h1 class="selected-meal"> Snack 1</h1>
 
   <ul>
@@ -170,7 +176,7 @@
   Lunch</h1>
 
   <ul>
-  {{#each item in this.dayPlanSelectedFoods}}
+  {{#each item in model.lunch}}
     <li>
       {{input type='number' min="0" step="0.25" value=item.amt}}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
@@ -191,7 +197,7 @@
   Snack2</h1>
 
   <ul>
-  {{#each item in this.dayPlanSelectedFoods}}
+  {{#each item in model.snack2}}
     <li>
       {{input type='number' min="0" step="0.25" value=item.amt}}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
@@ -212,7 +218,7 @@
   Dinner</h1>
 
   <ul>
-  {{#each item in this.dayPlanSelectedFoods}}
+  {{#each item in model.dinner}}
     <li>
       {{input type='number' min="0" step="0.25" value=item.amt}}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
@@ -234,7 +240,7 @@
   Other</h1>
 
   <ul>
-  {{#each item in this.dayPlanSelectedFoods}}
+  {{#each item in model.other}}
     <li>
       {{input type='number' min="0" step="0.25" value=item.amt}}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
@@ -248,8 +254,6 @@
   {{/each}}
   </ul>
 </div><!-- .hide/show-other -->
-
-
 
 
   <button type="submit" {{action 'createMeal'}} >

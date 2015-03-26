@@ -89,6 +89,15 @@ export default Ember.Controller.extend({
       plan.save();
     },
 
+    showAllMeals: function() {
+      this.set('isShowingBreakfast', true);
+      this.set('isShowingSnack1', true);
+      this.set('isShowingLunch', true);
+      this.set('isShowingSnack2', true);
+      this.set('isShowingDinner', true);
+      this.set('isShowingOtherMeal', true);
+    },
+
     pickBreakfast: function(){
       this.set('selectedMeal', 'breakfast');
       this.set('selectedMealDisplay', 'Breakfast');

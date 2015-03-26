@@ -194,3 +194,21 @@ h3 {
 
 
 
+/* @@@@@@@@@@@@@@@@@@@@
+    Media Quieries
+@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+@media screen and (min-width: 600px) {
+  #title {
+    font-size: 2*($title-size);
+  }
+  h1 {
+    font-size: 2*($h1-size);
+  }
+  h2 {
+    font-size: 2*($h2-size);
+  }
+  h3 {
+    font-size: 2*($h3-size);
+  }
+}

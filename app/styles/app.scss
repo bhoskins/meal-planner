@@ -4,8 +4,9 @@
 
 $max-width: 500px;
 $food-item-height: 20px;
+$content-bg-width: 90%;
 
-$title-size: 1.8em;
+$title-size: 1.5em;
 $h1-size: 1.2em;
 $h2-size: 1em;
 $h3-size: .8em;
@@ -13,22 +14,46 @@ $p-size: 1em;
 
 $content-bg: rgba(219, 220, 243, .7);
 $text-color: rgba(65, 74, 34, 1);
-$title-color: white;
+$title-color: RGBA(250, 0, 0, 1);
+
+
+
+// lighter/pale red/watermelon
+$light-accent-color: RGBA(255, 11, 51, 1);
+
+// bright red
+$accent-color: RGBA(193, 5, 2, 1);
+
+//dark-red
+$primary-color: RGBA(92, 10, 4, 1);
+
+// darker green
+$accent-color-green: RGBA(161, 190, 49, 1);
+
+// lighter-green
+$accent-color-light-green: RGBA(146, 190, 93, 1);
+
 
 
 body {
   display: relative;
   margin: 0 auto;
   width: 90%;
-  background: url('/assets/images/food.png') center center no-repeat;
+  background: url('/assets/images/food.png') no-repeat;
+  background-position: center center;
   background-size: cover;
-  color: $text-color;
+  color: $accent-color;
 }
 
 #title {
+  width: $content-bg-width;
+  margin: 0.5em auto;
+  padding: 10px;
   text-align: center;
-  color: $title-color;
+  color: $accent-color;
   font-size: $title-size;
+  background-color: $content-bg;
+  border-radius: .2em;
 }
 
 li, a {
@@ -49,10 +74,10 @@ h3 {
 }
 
 #page-wrap {
-  width: 90%;
+  width: content-bg-width;
  // height: 600px;
   margin: 2em auto;
-  padding: 20px;
+  padding: 0.5em;
   background-color: $content-bg;
   border-radius: .5em;
 }
@@ -161,5 +186,13 @@ h3 {
 
 .text-align-right {
   text-align: center;
+}
+
+
+//600px image breakpoint
+@media screen and (min-width: 600px) {
+  background-image: url('assets/images/food-mobile.png') no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 

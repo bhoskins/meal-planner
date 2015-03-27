@@ -117,7 +117,9 @@
     <li class="neat1">
       {{input type='number' min="0" step="0.25" value=item.amt }}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
-      {{item.name}}
+
+    <p class="meal-text">{{item.name}}
+    </p>
 
       <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
       X
@@ -138,7 +140,9 @@
     <li>
       {{input type='number' min="0" step="0.25" value=item.amt}}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
-      {{item.name}}
+
+      <p class="meal-text">{{item.name}}
+    </p>
 
       <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
       X
@@ -159,7 +163,9 @@
     <li>
       {{input type='number' min="0" step="0.25" value=item.amt}}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
-      {{item.name}}
+
+    <p class="meal-text">{{item.name}}
+    </p>
 
       <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
       X
@@ -181,7 +187,9 @@
     <li>
       {{input type='number' min="0" step="0.25" value=item.amt}}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
-      {{item.name}}
+
+   <p class="meal-text">{{item.name}}
+  </p>
 
       <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
       X
@@ -203,7 +211,9 @@
     <li>
       {{input type='number' min="0" step="0.25" value=item.amt}}
       {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
-      {{item.name}}
+
+   <p class="meal-text">{{item.name}}
+  </p>
 
       <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
       X

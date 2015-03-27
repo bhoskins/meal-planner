@@ -19,6 +19,7 @@ export default Ember.Controller.extend({
   dairyButton: 'Dairy',
   otherButton: 'Other',
   date: new Date(),
+  allMealsShowing: false,
   isShowingVeggies: false,
   isShowingProtein: false,
   isShowingCarb: false,

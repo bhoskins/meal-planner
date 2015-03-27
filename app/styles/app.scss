@@ -59,8 +59,8 @@ body {
   display: relative;
   margin: 0 auto;
   max-width: 90%;
-  background: url('/assets/images/food.png') no-repeat;
-  background-position: center center;
+  background: url('/assets/images/food.png') rgba(247, 249, 255, 1) no-repeat;
+  background-position: bottom center;
   background-size: cover;
   color: $accent-color;
 }

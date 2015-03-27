@@ -93,6 +93,7 @@ h3 {
 }
 
 #page-wrap {
+  position: relative;
   width: content-bg-width;
  // height: 600px;
   margin: 2em auto;
@@ -135,6 +136,17 @@ h3 {
 .hide-dinner,
 .hide-other {
   display: none;
+}
+
+.show-all-button {
+  position: absolute;
+  right: $heading-margin;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  background: url('/assets/images/menu-button-gray.png') center center no-repeat;
+  background-size: contain;
 }
 
 .section-header {

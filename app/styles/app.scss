@@ -8,6 +8,7 @@ $content-bg-width: 90%;
 
 $title-size: 1.5em;
 $section-header-size: 1em;
+$description-font-size: 0.8em;
 $h1-size: 1.2em;
 $h2-size: 1em;
 $h3-size: .8em;
@@ -162,6 +163,11 @@ h3 {
   color: $gray-color;
 }
 
+.food-cat-button {
+
+}
+
+
 ul.meal-ul {
   display: relative;
   margin: 0;
@@ -178,12 +184,38 @@ ul.meal-ul {
 
 }
 
-p.meal-text {
+
+p.meal-text,
+p.food-item {
   display: inline-block;
-  width: 50%;
   padding: 0;
   margin: 0;
 }
+
+p.meal-text {
+  width: 50%;
+}
+
+p.food-line {
+  width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*
+p.food-description {
+  font-family: cursive;
+  font-size: $description-font-size;
+  width: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+}
+*/
+
 
 input[type="number"] {
   width: 4em;

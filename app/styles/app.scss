@@ -7,10 +7,15 @@ $food-item-height: 20px;
 $content-bg-width: 90%;
 
 $title-size: 1.5em;
+$section-header-size: 1em;
 $h1-size: 1.2em;
 $h2-size: 1em;
 $h3-size: .8em;
 $p-size: 1em;
+
+$heading-margin: 0.4em;
+
+$sub-heading-font: cursive;
 
 $content-bg: rgba(219, 220, 243, .7);
 $text-color: rgba(65, 74, 34, 1);
@@ -22,16 +27,25 @@ $title-color: RGBA(250, 0, 0, 1);
 $light-accent-color: RGBA(255, 11, 51, 1);
 
 // bright red
-$accent-color: RGBA(193, 5, 2, 1);
+$accent-color: RGBA(209, 0, 0, 1);
+//RGBA(193, 5, 2, 1);
 
 //dark-red
-$primary-color: RGBA(92, 10, 4, 1);
+$primary-color: RGBA(89, 13, 2, 1);
+//RGBA(92, 10, 4, 1);
 
 // darker green
-$accent-color-green: RGBA(161, 190, 49, 1);
+$accent-color-darker-green: RGBA(161, 190, 49, 1);
 
 // lighter-green
 $accent-color-light-green: RGBA(146, 190, 93, 1);
+
+//Darkest color
+$accent-color-dark: RGBA(43, 70, 6, 1);
+//rgba(0, 65, 0, 1);
+
+//gray
+$gray-color: RGBA(109, 113, 115, 1);
 
 html,
 body {
@@ -122,11 +136,59 @@ h3 {
   display: none;
 }
 
-
-
 .section-header {
   text-align: left;
+  margin: $heading-margin;
+  font-size: $section-header-size;
 }
+
+.heading-meal {
+  display: inline-block;
+}
+
+.save-meal-button {
+  display: inline-block;
+  margin: 0 auto;
+  width: 10em;
+}
+
+.sub-heading {
+  font-family: $sub-heading-font;
+}
+
+.sub-heading-meal,
+.heading-meal,
+.meal-text {
+  color: $gray-color;
+}
+
+ul.meal-ul {
+  display: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.meal-ul li {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 1em;
+  padding: 0;
+  height: 1.5em;
+
+}
+
+p.meal-text {
+  display: inline-block;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="number"] {
+  width: 4em;
+}
+
 
 .food-heading-wrap {
   display: block;
@@ -151,6 +213,7 @@ h3 {
   vertical-align: middle;
   text-align: left;
 }
+
 
 .section-wrap {
   //@include outer-container;

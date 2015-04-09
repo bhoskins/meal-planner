@@ -49,29 +49,6 @@ export default Ember.Controller.extend({
 
     },
 
-    // loadDayPlan: function(){
-    //   console.log('loadDayPlan fired');
-
-    //   console.log('mydate is ' + this.mydate);
-    //   var dateSplit = (this.mydate).split("-");
-    //   console.log('year is ' + dateSplit[0]);
-    //   console.log('month is ' + dateSplit[1]);
-    //   console.log('date is ' + dateSplit[2]);
-
-    //   this.store.findQuery('dayPlan', {
-    //     'date': this.mydate
-    //   }).then(function(model){
-    //   if(Ember.isEmpty(model.dayPlan)) {
-    //     console.log('dayPlan empty');
-    //     model.dayPlan = this.store.createRecord('dayPlan');
-    //   } else {
-    //     console.log('dayPlan exists already');
-    //   return model;
-    //   }
-    //   });
-
-    // },
-
     previousDay: function() {
       var dayParse = Date.parse(this.date);
       var prevDayMs = dayParse - (1000*60*60*24);
@@ -91,12 +68,25 @@ export default Ember.Controller.extend({
     },
 
     showAllMeals: function() {
+      if (this.allMealsShowing === false ){
       this.set('isShowingBreakfast', true);
       this.set('isShowingSnack1', true);
       this.set('isShowingLunch', true);
       this.set('isShowingSnack2', true);
       this.set('isShowingDinner', true);
       this.set('isShowingOtherMeal', true);
+      this.set('this.allMealsShowing', true);
+      console.log(this.allMealsShowing);
+    }
+    else { console.log('else');
+      this.set('isShowingBreakfast', false);
+      this.set('isShowingSnack1', false);
+      this.set('isShowingLunch', false);
+      this.set('isShowingSnack2', false);
+      this.set('isShowingDinner', false);
+      this.set('isShowingOtherMeal', false);
+      this.set('this.allMealsShowing', false);
+    }
     },
 
     closeAllMeals: function() {

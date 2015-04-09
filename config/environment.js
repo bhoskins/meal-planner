@@ -56,6 +56,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.baseURL = '/meal-planner/';
+
 
   }
 

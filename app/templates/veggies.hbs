@@ -18,6 +18,10 @@
 
   <div class="food-item-div">
 
+    <button type='submit' class="add-food-button add-food food-line text-align-right" {{action 'addFood' }}>
+      +
+    </button>
+
     {{input type="number" class="amt-input food-line" name="Amt" value=foodController.selectedAmt min="0" step="0.25"}}
 
     {{view "select"
@@ -34,9 +38,7 @@
 -->
 
 
-    <button type='submit' class="add-food-button add-food food-line text-align-right" {{action 'addFood' }}>
-      +
-    </button>
+
 
 
   </div><!-- .food-item-div -->

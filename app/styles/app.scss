@@ -1,7 +1,10 @@
 @import "bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "bower_components/neat/app/assets/stylesheets/neat";
 
-$max-width: 1200px;
+$grid-columns: 8;
+$mobile: new-breakpoint(max-width 630px 6);
+
+$max-width: 800px;
 $food-item-height: 20px;
 $content-bg-width: 90%;
 
@@ -20,6 +23,8 @@ $sub-heading-font: cursive;
 $content-bg: rgba(219, 220, 243, .7);
 $text-color: rgba(65, 74, 34, 1);
 $title-color: RGBA(250, 0, 0, 1);
+
+$table-text-color: black;
 
 
 
@@ -46,6 +51,9 @@ $accent-color-dark: RGBA(43, 70, 6, 1);
 
 //gray
 $gray-color: RGBA(109, 113, 115, 1);
+
+//blue
+$blue-color: #055FFF;
 
 html,
 body {
@@ -74,9 +82,16 @@ body {
   border-radius: .2em;
 }
 
-li, a {
-  list-style: none;
+ul, li, a, p {
+  margin: 0;
+  padding: 0;
   text-decoration: none;
+  list-style: none;
+  text-align: left;
+}
+
+a, a:visited {
+  color: white;
 }
 
 h1 {
@@ -151,7 +166,8 @@ h3 {
   font-size: $section-header-size;
 }
 
-.heading-meal {
+.heading-meal,
+.heading-food {
   display: inline-block;
 }
 
@@ -163,19 +179,158 @@ h3 {
 
 .sub-heading {
   font-family: $sub-heading-font;
+  margin: 0;
+  margin-bottom: -0.1em;
+  pading: 0;
 }
 
 .sub-heading-meal,
 .heading-meal,
 .meal-text {
-  color: $gray-color;
+  color: $accent-color-dark;
 }
 
-.food-cat-button {
+.meal-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
+.food-desc {
+  font-family: cursive;
+}
+
+.delete-food-button {
+  background: $accent-color-dark;
+  color: white;
+}
+
+.add-food-button {
+  background: $title-color;
+  color: white;
+}
+
+.plus {
+  font-weight: 900;
+  font-size: 1.1em;
 }
 
 
+
+/**************************************
+    Neat Grid
+***************************************/
+
+.container {
+  @include outer-container;
+  border: 1px solid $accent-color-dark;
+  padding: 20px;
+}
+
+.container-food {
+  @include outer-container;
+  border: 1px solid $title-color;
+}
+/*
+.container p {
+  line-height: 1.2em;
+  font-size: 0.8em;
+}
+*/
+
+.block1 {
+  @include span-columns(1);
+  height: 1.8em;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+.block3 {
+  @include span-columns(3);
+  //@include pad(30px 20px 10px default);
+  //margin: 0;
+  //height: 1.8em;
+}
+
+.block5 {
+  @include span-columns(5);
+  //@include pad(5px 5px 5px 5px);
+  //margin: 0;
+  //height: 1.5em;
+  vertical-align: middle;
+}
+
+.neat-last,
+.omega {
+  @include omega();
+}
+
+.name {
+  @include media($mobile) {
+    @include span-columns(4);
+    @include omega();
+  }
+  line-height: 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
+
+.block12 {
+  @include span-columns(12);
+  @include pad(30px 20px 10px default);
+}
+
+.line {
+  margin: 0.5em;
+  padding: 0;
+  max-width: 750px;
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.block {
+  @include span-columns(4);
+  @include pad(30px 20px 10px default);
+  //margin-right: 0;
+  height: 50px;
+
+}
+
+.block:nth-child(3n),
+.omega {
+  @include omega();
+}
+
+/*
+.row1 {
+  @include row();
+}
+*/
+
+.extra,
+.heading {
+  @include media($mobile) {
+    display: none;
+  }
+}
+
+.table-text {
+  color: $table-text-color;
+  text-align: center;
+}
+
+.total {
+  text-align: right;
+}
+
+/****************************************
+
+*****************************************/
+
+/*
 ul.meal-ul {
   display: relative;
   margin: 0;
@@ -191,18 +346,22 @@ ul.meal-ul {
   height: 1.5em;
 
 }
+*/
 
-
+/*
 p.meal-text,
 p.food-item {
   display: inline-block;
   padding: 0;
   margin: 0;
 }
+*/
 
+/*
 p.meal-text {
   width: 50%;
 }
+*/
 
 p.food-line {
   width: 40%;
@@ -212,88 +371,76 @@ p.food-line {
   white-space: nowrap;
 }
 
-/*
-p.food-description {
-  font-family: cursive;
-  font-size: $description-font-size;
-  width: 30%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  white-space: nowrap;
-}
-*/
-
-
-input[type="number"] {
-  width: 4em;
+/********************************
+    Login Page Below
+*********************************/
+.form-group {
+  margin: 0 auto;
+  padding: 1em;
+  width: 60%;
+  background: $content-bg;
+  border-radius: 20px;
 }
 
-
-.food-heading-wrap {
-  display: block;
-  max-width: $max-width;
-  vertical-align: middle;
-}
-
-.food-item-div {
-  display: block;
-  max-width: $max-width;
-  height: $food-item-height;
-  margin-bottom: .1em;
-  vertical-align: middle;
-}
-
-.food-heading {
-  display: inline-block;
-}
-
-.food-item-div * {
-  display: inline-block;
-  vertical-align: middle;
-  text-align: left;
-}
-
-
-.section-wrap {
-  //@include outer-container;
-}
-
-.selected-food {
- // @include span-columns(1);
-}
-
-.amt-input {
-  //@include span-columns(2);
-}
-
-.amt-unit {
-  //@include span-columns(2);
-}
-
-.food-item-heading,
-.food-item {
-  //@include span-columns(5);
-}
-
-.food-item {
+.login-heading {
   margin: 0;
   padding: 0;
-}
-
-.is-favorite {
-  //@include span-columns(1);
-
-}
-
-.add-food {
-  //@include span-columns(1);
-  //@include omega();
-}
-
-.text-align-right {
   text-align: center;
 }
+
+.control-label,
+.email-input,
+.btn-login {
+  display: inline-block
+}
+
+.email-wrap,
+.password-wrap {
+  margin-bottom: 0.5em;
+  margin-left: 30%;
+  font-size: 1.2em;
+}
+
+.password-wrap {
+  margin-left: 25%;
+}
+
+.form-control {
+  display: inline-block;
+  line-height: 1.5em;
+  width: 250px;
+}
+
+.btn-login,
+.register-here {
+  display: block;
+  width: 8em;
+  height: 2em;
+  margin: 1em auto;
+  border-radius: 10px;
+  background: $title-color;
+  font-size: 1em;
+  color: white;
+}
+
+.register-heading {
+  margin-top: -0.5em;
+}
+
+.register-here {
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.5em;
+}
+
+.register-link {
+  //display: inline-block;
+  margin: 0 auto;
+  padding: 1em;
+  text-align: center;
+}
+
+
 
 /* @@@@@@@@@@@@@@@@@@@@
     Media Quieries

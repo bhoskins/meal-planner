@@ -26,7 +26,7 @@
 
 
 {{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
-<h2 class="section-header heading-meal">
+    <h2 class="section-header heading-meal">
       Choose Meal
     </h2>
 
@@ -41,8 +41,6 @@
 </div>
 
 <div class="meal-type nav">
-
-
     <button
       {{action 'pickBreakfast' }}>
       Breakfast
@@ -75,77 +73,171 @@
 
 </div><!-- .meal-type .nav -->
 
-<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
       Meals
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
 <div
-  {{ bind-attr class="isShowingBreakfast:show-breakfast:hide-breakfast" }}
+  {{ bind-attr class=":container isShowingBreakfast:show-breakfast:hide-breakfast" }}
 >
 
   <h1 class="selected-meal section-header sub-heading sub-heading-meal">
     Breakfast
   </h1>
 
-<ul class="meal-ul">
-{{#each item in model.breakfast}}
-  <li>
-    <button class="delete-food-button delete-food meal-food-delete" {{action 'deleteFood' item}}>
-    X
-    </button>
+<!--  Begin Headings -->
+    <p class="block1 heading" >del</p>
+    <p class="block1 heading">amt</p>
+    <p class="block1 heading">unit</p>
+    <p class="block5 heading name omega">Name - <span class='description'>Description</span></p>
 
-    {{input type='number' min="0" step="0.25" value=item.amt}}
+    <!-- Future Feature
+    <p class="block1 heading extra cal">cal</p>
+    <p class="block1 heading extra">carb/g</p>
+    <p class="block1 heading extra">prot/g</p>
+    <p class="block1 heading extra">fat/g</p>
+    <p class="block1 heading extra">sod/mg</p>
+    <p class="block1 heading extra omega">fib/g</p>
 
-    {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
-    <p class="meal-text">{{item.name}}
-    </p>
+    -->
 
-  </li>
-{{/each}}
-</ul>
+    <hr class="line block12 heading">
 
-</div>
-
-
-<div
-  {{ bind-attr class="isShowingSnack1:show-snack1:hide-snack1" }}
->
-  <h1 class="selected-meal section-header sub-heading sub-heading-meal"> Snack 1</h1>
 
   <ul class="meal-ul">
-  {{#each item in model.snack1}}
-    <li class="neat1">
-      <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
+{{#each item in model.breakfast}}
+    <li>
+      <button class="delete-food-button delete-food meal-food-delete block1" {{action 'deleteFood' item}}>
       X
       </button>
 
-      {{input type='number' min="0" step="0.25" value=item.amt }}
-      {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
+      {{input type='number' min="0" step="0.25" value=item.amt class="block1"}}
 
-    <p class="meal-text">{{item.name}}
+      {{view "select" class="amt-unit food-line block1" content=this.amtUnit value=item.amtUnit}}
+
+      <p class="meal-text block5 omega">{{item.name}} -
+        <span class="food-desc">{{item.foodDesc}}</span>
+      </p>
+
+
+      <!-- Future Feature
+
+      <p class="block1 cal table-text">260
+      </p>
+
+      <p class="block1 carb table-text">12
+      </p>
+
+      <p class="block1 prot table-text">260
+      </p>
+
+      <p class="block1 fat table-text">11.2
+      </p>
+
+      <p class="block1 sod table-text">125
+      </p>
+
+      <p class="block1 fib table-text neat-last">3
+      </p>
+
+      End Future Feature-->
+
+    </li>
+{{/each}}
+  </ul>
+
+<!-- Future Feature
+
+  <p class="gap block3"> </p>
+  <p class="total block3">Meal Total</p>
+
+-->
+
+</div>
+
+<!--  Snack 1 -->
+
+<div
+  {{ bind-attr class=":container isShowingSnack1:show-snack1:hide-snack1" }}
+>
+  <h1 class="selected-meal section-header sub-heading sub-heading-meal"> Snack 1</h1>
+
+  <!--  Begin Headings -->
+    <p class="block1 heading" >del</p>
+    <p class="block1 heading">amt</p>
+    <p class="block1 heading">unit</p>
+    <p class="block5 heading name omega">Name - <span class='description'>Description</span></p>
+
+    <!-- Future Feature
+    <p class="block1 heading extra cal">cal</p>
+    <p class="block1 heading extra">carb/g</p>
+    <p class="block1 heading extra">prot/g</p>
+    <p class="block1 heading extra">fat/g</p>
+    <p class="block1 heading extra">sod/mg</p>
+    <p class="block1 heading extra omega">fib/g</p>
+
+    -->
+
+    <hr class="line block12 heading">
+
+  <ul class="meal-ul">
+  {{#each item in model.snack1}}
+    <li>
+      <button class="delete-food-button delete-food block1" {{action 'deleteFood' item}}>
+      X
+      </button>
+
+      {{input type='number' min="0" step="0.25" value=item.amt class="block1"}}
+      {{view "select" class="amt-unit food-line block1" content=this.amtUnit value=item.amtUnit}}
+
+    <p class="meal-text block5">
+      {{item.name}} -
+        <span class="food-desc">{{item.foodDesc}}</span>
     </p>
 
     </li>
+
   {{/each}}
+
   </ul>
 </div><!-- .hide/show-snack1 -->
 
 <div
-  {{ bind-attr class="isShowingLunch:show-lunch:hide-lunch" }} >
+  {{ bind-attr class=":container isShowingLunch:show-lunch:hide-lunch" }} >
   <h1 class="selected-meal section-header sub-heading sub-heading-meal">
   Lunch</h1>
+
+  <!--  Begin Headings -->
+    <p class="block1 heading" >del</p>
+    <p class="block1 heading">amt</p>
+    <p class="block1 heading">unit</p>
+    <p class="block5 heading name omega">Name - <span class='description'>Description</span></p>
+
+    <!-- Future Feature
+    <p class="block1 heading extra cal">cal</p>
+    <p class="block1 heading extra">carb/g</p>
+    <p class="block1 heading extra">prot/g</p>
+    <p class="block1 heading extra">fat/g</p>
+    <p class="block1 heading extra">sod/mg</p>
+    <p class="block1 heading extra omega">fib/g</p>
+
+    -->
+
+    <hr class="line block12 heading">
 
   <ul>
   {{#each item in model.lunch}}
     <li>
-      <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
+      <button class="delete-food-button delete-food block1" {{action 'deleteFood' item}}>
       X
       </button>
 
-      {{input type='number' min="0" step="0.25" value=item.amt}}
-      {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
+      {{input type='number' min="0" step="0.25" value=item.amt class="block1"}}
+      {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit class="block1"}}
 
-      <p class="meal-text">{{item.name}}
+      <p class="meal-text block5">
+        {{item.name}} -
+        <span class="food-desc">{{item.foodDesc}}</span>
     </p>
 
     </li>
@@ -154,21 +246,41 @@
 </div><!-- .hide/show-lunch -->
 
 <div
-  {{ bind-attr class="isShowingSnack2:show-snack2:hide-snack2" }} >
+  {{ bind-attr class=":container isShowingSnack2:show-snack2:hide-snack2" }} >
   <h1 class="selected-meal section-header sub-heading sub-heading-meal">
   Snack2</h1>
+
+  <!--  Begin Headings -->
+    <p class="block1 heading" >del</p>
+    <p class="block1 heading">amt</p>
+    <p class="block1 heading">unit</p>
+    <p class="block5 heading name omega">Name - <span class='description'>Description</span></p>
+
+    <!-- Future Feature
+    <p class="block1 heading extra cal">cal</p>
+    <p class="block1 heading extra">carb/g</p>
+    <p class="block1 heading extra">prot/g</p>
+    <p class="block1 heading extra">fat/g</p>
+    <p class="block1 heading extra">sod/mg</p>
+    <p class="block1 heading extra omega">fib/g</p>
+
+    -->
+
+    <hr class="line block12 heading">
 
   <ul>
   {{#each item in model.snack2}}
     <li>
-      <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
+      <button class="delete-food-button delete-food block1" {{action 'deleteFood' item}}>
       X
       </button>
 
-      {{input type='number' min="0" step="0.25" value=item.amt}}
-      {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
+      {{input type='number' min="0" step="0.25" value=item.amt class="block1"}}
+      {{view "select" class="amt-unit food-line block1" content=this.amtUnit value=item.amtUnit}}
 
-    <p class="meal-text">{{item.name}}
+    <p class="meal-text block5">
+      {{item.name}} -
+        <span class="food-desc">{{item.foodDesc}}</span>
     </p>
 
     </li>
@@ -177,22 +289,42 @@
 </div><!-- .hide/show-snack2 -->
 
 <div
-  {{ bind-attr class="isShowingDinner:show-dinner:hide-dinner" }} >
+  {{ bind-attr class=":container isShowingDinner:show-dinner:hide-dinner" }} >
 
   <h1 class="selected-meal section-header sub-heading sub-heading-meal">
   Dinner</h1>
 
+<!--  Begin Headings -->
+    <p class="block1 heading" >del</p>
+    <p class="block1 heading">amt</p>
+    <p class="block1 heading">unit</p>
+    <p class="block5 heading name omega">Name - <span class='description'>Description</span></p>
+
+    <!-- Future Feature
+    <p class="block1 heading extra cal">cal</p>
+    <p class="block1 heading extra">carb/g</p>
+    <p class="block1 heading extra">prot/g</p>
+    <p class="block1 heading extra">fat/g</p>
+    <p class="block1 heading extra">sod/mg</p>
+    <p class="block1 heading extra omega">fib/g</p>
+
+    -->
+
+    <hr class="line block12 heading">
+
   <ul>
   {{#each item in model.dinner}}
     <li>
-      <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
+      <button class="delete-food-button delete-food block1" {{action 'deleteFood' item}}>
       X
       </button>
 
-      {{input type='number' min="0" step="0.25" value=item.amt}}
-      {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
+      {{input type='number' min="0" step="0.25" value=item.amt class="block1"}}
+      {{view "select" class="amt-unit food-line block1" content=this.amtUnit value=item.amtUnit}}
 
-   <p class="meal-text">{{item.name}}
+   <p class="meal-text block5">
+    {{item.name}} -
+        <span class="food-desc">{{item.foodDesc}}</span>
   </p>
 
     </li>
@@ -201,22 +333,42 @@
 </div><!-- .hide/show-dinner -->
 
 <div
-  {{ bind-attr class="isShowingOtherMeal:show-other:hide-other" }}
+  {{ bind-attr class=":container isShowingOtherMeal:show-other:hide-other" }}
 >
   <h1 class="selected-meal section-header sub-heading sub-heading-meal">
   Other</h1>
 
+  <!--  Begin Headings -->
+    <p class="block1 heading" >del</p>
+    <p class="block1 heading">amt</p>
+    <p class="block1 heading">unit</p>
+    <p class="block5 heading name omega">Name - <span class='description'>Description</span></p>
+
+    <!-- Future Feature
+    <p class="block1 heading extra cal">cal</p>
+    <p class="block1 heading extra">carb/g</p>
+    <p class="block1 heading extra">prot/g</p>
+    <p class="block1 heading extra">fat/g</p>
+    <p class="block1 heading extra">sod/mg</p>
+    <p class="block1 heading extra omega">fib/g</p>
+
+    -->
+
+    <hr class="line block12 heading">
+
   <ul>
   {{#each item in model.other}}
     <li>
-      <button class="delete-food-button delete-food" {{action 'deleteFood' item}}>
+      <button class="delete-food-button delete-food block1" {{action 'deleteFood' item}}>
       X
       </button>
 
-      {{input type='number' min="0" step="0.25" value=item.amt}}
-      {{view "select" class="amt-unit food-line" content=this.amtUnit value=item.amtUnit}}
+      {{input type='number' min="0" step="0.25" value=item.amt class="block1"}}
+      {{view "select" class="amt-unit food-line block1" content=this.amtUnit value=item.amtUnit}}
 
-   <p class="meal-text">{{item.name}}
+   <p class="meal-text block5">
+    {{item.name}} -
+        <span class="food-desc">{{item.foodDesc}}</span>
   </p>
 
     </li>
@@ -227,9 +379,17 @@
 
   {{!-- @@@ Meal Category Select Below @@@@ --}}
 
-  <h2 class="section-header food-category-heading">
+  <h2 class="section-header heading-food food-category-heading">
     Add Food
   </h2>
+
+  <button type="submit" class="save-meal-button"
+    {{action 'createMeal'}} >
+    Save Meals
+  </button>
+
+  <div class="divider">
+  </div>
 
 {{!  'selectVeggie'}}
   <button class="food-cat-button" {{action 'selectVeggie' class="veggieButton" value=isShowing }} >

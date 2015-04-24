@@ -8,21 +8,6 @@ export default Ember.Controller.extend({
   isSelected: false,
   // selectedFoods: [],
   actions: {
-    popup: function(){
-      alert('veggies controller fired');
-    },
-    pickFood: function() {
-
-
-    },
-    showDetails: function(){
-      console.log('showDetails');
-
-    },
-    checkSelected: function(){
-      console.log('got selected');
-    },
-
     addToMeal: function(){
       var selectedFoods = this.get('controllers.food.mealFoods');
       console.log(selectedFoods);
@@ -30,7 +15,6 @@ export default Ember.Controller.extend({
       this.get('controllers.dayPlan').send('showSelectedFoods');
       this.transitionToRoute('dayPlan');
     }
-
   }
 
 

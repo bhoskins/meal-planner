@@ -12,6 +12,7 @@ export default Ember.Controller.extend({
   snack2: [],
   dinner: [],
   other: [],
+  totalCal: 0,
   veggieButton: "Veggie",
   proteinButton: 'Protein',
   carbButton: 'Carb',
@@ -32,8 +33,6 @@ export default Ember.Controller.extend({
   isShowingSnack2: false,
   isShowingDinner: false,
   isShowingOtherMeal: false,
-  // shortdate: moment('date', 'MM/DD/YYYY'),
-  timeSince: ago('date', true),
   format: "LL",
   isFavorite: false,
   amtUnit: [ "items", "g", "oz", "tsp", "Tbsp",
@@ -46,20 +45,6 @@ export default Ember.Controller.extend({
       // this.get('controllers.food').send('popup');
       var test = this.get('controllers.food.foodProperty');
       console.log(test);
-
-    },
-
-    previousDay: function() {
-      var dayParse = Date.parse(this.date);
-      var prevDayMs = dayParse - (1000*60*60*24);
-      var prevDay = new Date(prevDayMs);
-    },
-
-    nextDay: function(){
-      var dayParse = Date.parse(this.date);
-      var nextDayParse = dayParse + (1000*60*60*24);
-      var nextDay = new Date(nextDayParse);
-      console.log('next Day is ' + nextDay);
     },
 
     createMeal: function() {
@@ -302,10 +287,6 @@ export default Ember.Controller.extend({
     deleteFood: function(food){
       var meal = this.get('this.selectedMeal');
       this.get('model.' + meal).removeObject(food);
-    },
-
-    addCustomFood: function(){
-      console.log('addCustomFood');
     }
 
   }

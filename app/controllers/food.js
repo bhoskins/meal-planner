@@ -30,18 +30,12 @@ export default Ember.Controller.extend({
         data: JSON.stringify(data)
       });
     },
-      pickFood: function() {
 
-
-    },
     showDetails: function(){
       console.log('showDetails');
       this.transitionToRoute('show', this.get('model'));
 
 
-    },
-    checkSelected: function(){
-      console.log('got selected');
     },
 
     addFood: function(){
@@ -50,6 +44,7 @@ export default Ember.Controller.extend({
 
       var amt = this.get('this.selectedAmt');
       var amtUnit = this.get('this.selectedAmtUnit');
+      var foodDesc = this.get('model.foodDesc');
 
       if ((amt) === 0  ){
         return;
@@ -57,14 +52,11 @@ export default Ember.Controller.extend({
 
         var selectedFood = {
           name: name,
+          foodDesc: foodDesc,
           amt: amt,
           amtUnit: amtUnit
         };
-      //   this.mealFoods.push(selectedFood);
 
-      //   this.set('controllers.dayPlan.dayPlanSelectedFoods', this.mealFoods);
-      //   this.get('controllers.dayPlan').send('showSelectedFoods');
-      //   console.log('food controller this.mealFoods' + this.mealFoods);
         this.get('controllers.dayPlan').send('addFood', selectedFood);
       }
     },

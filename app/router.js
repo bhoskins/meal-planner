@@ -14,14 +14,12 @@ Router.map(function() {
   this.route('veggies');
   this.route('meal');
 
-
   this.route('protein');
   this.route('carb');
   this.route('fruit');
   this.route('dairy');
   this.route('other');
   this.route('food');
-
 
   this.route('calendar', { path: 'calendar/:dayPlan_id'});
   this.route('login');

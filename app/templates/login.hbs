@@ -1,26 +1,25 @@
 {{outlet}}
 <form class="form-horizontal col-lg-6 col-lg-offset-3" {{action 'authenticate' on='submit'}}>
 
+  <div class="form-group">
+    <h2 class="heading login-heading">Welcome Back</h2>
 
-    <div class="form-group">
-      <h2 class="heading login-heading">Welcome Back</h2>
-
-      <div class="email-wrap">
+    <div class="email-wrap">
       <label for="identification" class="control-label">Email</label>
 
         {{input value=identification placeholder='Enter Email' type='email' class="form-control email-input" required=true}}
-      </div><!-- .email-wrap -->
+    </div><!-- .email-wrap -->
 
-      <div class="password-wrap">
-        <label for="password" class="control-label">Password</label>
+    <div class="password-wrap">
+      <label for="password" class="control-label">Password</label>
 
         {{input value=password placeholder='Enter Password' type='password' class="form-control password-input" required=true}}
 
-      </div><!-- .password-wrap -->
+    </div><!-- .password-wrap -->
 
-      <button type="submit" class="btn btn-login">Login</button>
+    <button type="submit" class="btn btn-login">Login</button>
 
-      <hr class="line" />
+    <hr class="line" />
 
     <div class="register-link"><h2 class="register-heading">
     New? Register Below</h2><span class="register-here">

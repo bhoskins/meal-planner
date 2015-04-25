@@ -230,6 +230,8 @@ h3 {
 .container-food {
   @include outer-container;
   border: 1px solid $title-color;
+  padding: 20px;
+  margin-left: 0.5em;
 }
 /*
 .container p {
@@ -330,41 +332,7 @@ h3 {
 
 *****************************************/
 
-/*
-ul.meal-ul {
-  display: relative;
-  margin: 0;
-  padding: 0;
-}
-
-.meal-ul li {
-  margin-top: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 1em;
-  padding: 0;
-  height: 1.5em;
-
-}
-*/
-
-/*
-p.meal-text,
-p.food-item {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-*/
-
-/*
-p.meal-text {
-  width: 50%;
-}
-*/
-
 p.food-line {
-  width: 40%;
   overflow: hidden;
   text-overflow: ellipsis;
   -o-text-overflow: ellipsis;

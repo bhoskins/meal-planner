@@ -47,7 +47,8 @@ $accent-color-light-green: RGBA(146, 190, 93, 1);
 
 //Darkest color
 $accent-color-dark: RGBA(43, 70, 6, 1);
-//rgba(0, 65, 0, 1);
+//RGBA(43, 70, 6, 1);
+//RGBA(30, 74, 2, 1) Lincoln Green
 
 //gray
 $gray-color: RGBA(109, 113, 115, 1);
@@ -218,6 +219,43 @@ h3 {
   font-weight: 900;
   font-size: 1.1em;
 }
+
+hr.section-divide {
+    padding: 0;
+    width: 80%;
+    margin-top: 1em;
+    border: none;
+    border-top: medium double $accent-color-dark;
+    text-align: center;
+}
+
+
+hr.section-divide:after {
+    //content:
+    //"Load Meal";
+    //"§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.2em;
+    padding: 0 0.25em;
+    background: rgba(255, 255, 255, 0.8);
+    color: $title-color;
+    //border-radius: 100%;
+    border-radius: 5px;
+}
+
+hr.section-divide-load:after {
+  content: "Choose Meal";
+}
+
+hr.section-divide-save:after {
+  content: "Add Food";
+}
+
+
+
+
 
 /**************************************
     Neat Grid

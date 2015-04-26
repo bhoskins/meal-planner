@@ -5,11 +5,11 @@ Error: File to import not found or unreadable: bower_components/bourbon/app/asse
         on line 1 of app.scss
 
 1: @import "bower_components/bourbon/app/assets/stylesheets/bourbon";
-2: 
-3: @import "bower_components/neat/app/assets/stylesheets/neat";
-4: 
-5: $max-width: 1200px;
-6: $food-item-height: 20px;
+2: @import "bower_components/neat/app/assets/stylesheets/neat";
+3: 
+4: $grid-columns: 8;
+5: $mobile: new-breakpoint(max-width 630px 6);
+6: 
 
 Backtrace:
 app.scss:1
@@ -56,4 +56,4 @@ app.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: bower_components/bourbon/app/assets/stylesheets/bourbon.\A        Load paths:\A          \A         on line 1 of app.scss\A \A 1: @import \"bower_components/bourbon/app/assets/stylesheets/bourbon\";\A 2: \A 3: @import \"bower_components/neat/app/assets/stylesheets/neat\";\A 4: \A 5: $max-width: 1200px;\A 6: $food-item-height: 20px;"; }
+  content: "Error: File to import not found or unreadable: bower_components/bourbon/app/assets/stylesheets/bourbon.\A        Load paths:\A          \A         on line 1 of app.scss\A \A 1: @import \"bower_components/bourbon/app/assets/stylesheets/bourbon\";\A 2: @import \"bower_components/neat/app/assets/stylesheets/neat\";\A 3: \A 4: $grid-columns: 8;\A 5: $mobile: new-breakpoint(max-width 630px 6);\A 6: "; }

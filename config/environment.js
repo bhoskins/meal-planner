@@ -14,7 +14,7 @@ module.exports = function(environment) {
       authorizer: 'authorizer:parse',
       crossOriginWhitelist: ['https://api.parse.com'],
       routeAfterAuthentication: 'dayPlan',
-      // routeIfAlreadyAuthenticated: 'dayPlan'
+      routeIfAlreadyAuthenticated: 'dayPlan'
     },
 
     parseKeys: {

@@ -5,8 +5,10 @@ $grid-columns: 8;
 $mobile: new-breakpoint(max-width 630px 6);
 
 $max-width: 800px;
+$divide-line: 0.8 * ($max-width);
 $food-item-height: 20px;
 $content-bg-width: 90%;
+$container-margin-left: 200px;
 
 $title-size: 1.5em;
 $section-header-size: 1em;
@@ -49,6 +51,7 @@ $accent-color-light-green: RGBA(146, 190, 93, 1);
 $accent-color-dark: RGBA(43, 70, 6, 1);
 //RGBA(43, 70, 6, 1);
 //RGBA(30, 74, 2, 1) Lincoln Green
+//#1e4a02
 
 //gray
 $gray-color: RGBA(109, 113, 115, 1);
@@ -154,15 +157,15 @@ h3 {
   display: none;
 }
 
-.show-all-button {
-  position: absolute;
-  right: $heading-margin;
+.show-all-btn {
+  //position: absolute;
+  //right: $heading-margin;
   display: inline-block;
   width: 20px;
   height: 20px;
   vertical-align: middle;
-  background: url('/assets/images/menu-button-gray.png') center center no-repeat;
-  background-size: contain;
+  background: url('/assets/images/menu-bar.gif') center center no-repeat;
+  background-size: 70%;
 }
 
 .section-header {
@@ -171,8 +174,7 @@ h3 {
   font-size: $section-header-size;
 }
 
-.heading-meal,
-.heading-food {
+.heading-meal {
   display: inline-block;
 }
 
@@ -220,9 +222,10 @@ h3 {
   font-size: 1.1em;
 }
 
+/*
 hr.section-divide {
     padding: 0;
-    width: 80%;
+    width: $divide-line;
     margin-top: 1em;
     border: none;
     border-top: medium double $accent-color-dark;
@@ -231,16 +234,14 @@ hr.section-divide {
 
 
 hr.section-divide:after {
-    //content:
-    //"Load Meal";
-    //"§";
+    //content: "§";
     display: inline-block;
     position: relative;
     top: -0.7em;
     font-size: 1.2em;
     padding: 0 0.25em;
     background: rgba(255, 255, 255, 0.8);
-    color: $title-color;
+    color: $gray-color;
     //border-radius: 100%;
     border-radius: 5px;
 }
@@ -252,20 +253,62 @@ hr.section-divide-load:after {
 hr.section-divide-save:after {
   content: "Add Food";
 }
+*/
 
+.date-picker {
+  display: block;
+  margin: 0 auto;
+  height: 2em;
+  width: 10.75em;
+  line-height: 1.5em;
+  font-family: "Trebuchet MS";
+  font-size: 1.2em;
+  text-align: center;
+  color: $title-color;
+  font-weight: bold;
+  border-radius: 10px;
+}
 
+.date-wrap,
+.save-wrap {
+  margin: 0 auto;
+  max-width: $divide-line;
+  border: none;
+}
+
+.date-wrap {
+  border-bottom: medium double $title-color;
+}
+
+.save-wrap {
+  border-bottom: medium double $accent-color-dark;
+}
+
+.load-btn,
+.save-btn {
+  position: relative;
+  top: 20px;
+  display: block;
+  margin: 0 auto;
+}
 
 
 
 /**************************************
     Neat Grid
 ***************************************/
+.meal-nav-wrap,
+.food-nav-wrap {
+  margin: 0 auto;
+  margin-top: 1em;
+  max-width: $max-width;
+}
 
 .container,
 .container-food {
   @include outer-container;
   padding: 20px;
-  margin-left: 0.5em;
+  //margin-left: $container-left-margin;
 }
 
 .container {
@@ -588,10 +631,118 @@ p.food-line {
   position:relative;
   top:1px;
 }
+
+.load-btn {
+  font-size:18px;
+  font-family:Trebuchet MS;
+  font-weight:bold;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  border:2px solid #e20000;
+  padding:6px 20px;
+  text-decoration:none;
+  background:-moz-linear-gradient( center top, #b50606 22%, #e20000 83% );
+  background:-ms-linear-gradient( top, #b50606 22%, #e20000 83% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b50606', endColorstr='#e20000');
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(22%, #b50606), color-stop(83%, #e20000) );
+  background-color:#b50606;
+  color:#ffffff;
+  -webkit-box-shadow:inset 1px 1px 5px -37px #dedede;
+  -moz-box-shadow:inset 1px 1px 5px -37px #dedede;
+  box-shadow:inset 1px 1px 5px -37px #dedede;
+}
+
+.load-btn:hover {
+  background:-moz-linear-gradient( center top, #e20000 22%, #b50606 83% );
+  background:-ms-linear-gradient( top, #e20000 22%, #b50606 83% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e20000', endColorstr='#b50606');
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(22%, #e20000), color-stop(83%, #b50606) );
+  background-color:#e20000;
+}
+
+.load-btn:active {
+  position:relative;
+  top:1px;
+}
+
+.save-btn {
+  font-size:18px;
+  font-family:Trebuchet MS;
+  font-weight:bold;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  border-radius:10px;
+  border:2px solid #1e4a02;
+  padding:6px 20px;
+  text-decoration:none;
+  background:-moz-linear-gradient( center top, #337805 22%, #1e4a02 83% );
+  background:-ms-linear-gradient( top, #337805 22%, #1e4a02 83% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#337805', endColorstr='#1e4a02');
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(22%, #337805), color-stop(83%, #1e4a02) );
+  background-color:#337805;
+  color:#ffffff;
+  -webkit-box-shadow:inset 1px 1px 5px -37px #dedede;
+  -moz-box-shadow:inset 1px 1px 5px -37px #dedede;
+  box-shadow:inset 1px 1px 5px -37px #dedede;
+}
+
+.save-btn:hover {
+  background:-moz-linear-gradient( center top, #1e4a02 22%, #337805 83% );
+  background:-ms-linear-gradient( top, #1e4a02 22%, #337805 83% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e4a02', endColorstr='#337805');
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(22%, #1e4a02), color-stop(83%, #337805) );
+  background-color:#1e4a02;
+}
+
+.save-btn:active {
+  position:relative;
+  top:1px;
+}
 /* This css button was generated by css-button-generator.com */
 
+/*@@@@@@@@@@@@@@@@@@@@
+    Octicon Styles
+@@@@@@@@@@@@@@@@@@@@@@@@*/
 
-/* @@@@@@@@@@@@@@@@@@@@
+/*
+@font-face {
+  font-family: 'octicons';
+  src: url('octicons.eot?#iefix') format('embedded-opentype'),
+       url('octicons.woff') format('woff'),
+       url('octicons.ttf') format('truetype'),
+       url('octicons.svg#octicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+/*
+
+.octicon is optimized for 16px.
+.mega-octicon is optimized for 32px but can be used larger.
+
+*/
+
+/*
+.octicon, .mega-octicon {
+  font: normal normal normal 16px/1 octicons;
+  display: inline-block;
+  text-decoration: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.mega-octicon { font-size: 32px; }
+
+.octicon-three-bars:before { content: '\f05e'; }
+*/
+
+/*@@@@@@@@@@@@@@@@@@@@
     Media Quieries
 @@@@@@@@@@@@@@@@@@@@@@@@*/
 

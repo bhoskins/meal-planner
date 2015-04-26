@@ -9,39 +9,34 @@
 {{!-- @@@@@@ Select Date @@@@@@@@ --}}
 
 <form>
-  <div class="showDate">
-    <h2 class="section-header">
-      Choose Date
-    </h2>
-  </div>
 
-<div class="divider">
-{{date-picker date=mydate valueFormat='YYYY-MM-DD' format='MMMM Do YYYY'}}
+<div class="date-wrap">
+{{date-picker date=mydate valueFormat='YYYY-MM-DD' format='MMMM Do YYYY' class="date-picker" }}
 
   {{#link-to 'dayPlan' mydate}}
-    <button>Load Meals</button>
+    <button class="load-btn">Load Meals</button>
   {{/link-to}}
 </div>
 
-<hr class="section-divide section-divide-load" />
-
-
 {{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
+
+  <div class="meal-type nav meal-nav-wrap">
+
+  <div class="choose-meal-div">
     <h2 class="section-header heading-meal">
       Choose Meal
     </h2>
 
-    <button type="submit" class="save-meal-button"
-    {{action 'createMeal'}} >
-    Save Meal
-    </button>
+<!--
+    <span class="octicon octicon-three-bars"></span>
+    -->
 
-<div class="show-all-button"
-    {{action 'showAllMeals' }} >
+  <div class="show-all-btn"
+      {{action 'showAllMeals' }} >
+  </div>
 
-</div>
+</div> <!-- .choose-meal-div -->
 
-<div class="meal-type nav">
     <button class=
 "meal-cat-btn js-breakfast-btn"
       {{action 'pickBreakfast' }}>
@@ -73,7 +68,8 @@
     Other
   </button>
 
-</div><!-- .meal-type .nav -->
+</div><!-- .meal-type .nav .meal-nav-wrap -->
+
 
 <!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
       Meals
@@ -378,7 +374,12 @@
   </ul>
 </div><!-- .hide/show-other -->
 
-<hr class="section-divide section-divide-save" />
+  <div class="save-wrap">
+    <button type="submit" class="save-btn"
+      {{action 'createMeal'}} >
+      Save Meals
+    </button>
+  </div>
 
   {{!-- @@@ Meal Category Select Below @@@@ --}}
   <div class="food-nav-wrap">
@@ -386,14 +387,6 @@
   <h2 class="section-header heading-food food-category-heading">
     Add Food
   </h2>
-
-  <button type="submit" class="save-meal-button"
-    {{action 'createMeal'}} >
-    Save Meals
-  </button>
-
-  <div class="divider">
-  </div>
 
 {{!  'selectVeggie'}}
   <button class="food-cat-btn js-veggie-btn" {{action 'selectVeggie' class="veggieButton" value=isShowing }} >

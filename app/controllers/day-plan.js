@@ -3,9 +3,7 @@ import { moment, ago } from 'ember-moment/computed';
 
 export default Ember.Controller.extend({
   needs: ['veggies', 'food'],
-  // dayPlanSelectedFoods: [],
-  // selectedMeal: "breakfast",
-  // selectedMealDisplay: "Breakfast",
+
   breakfast: [],
   snack1: [],
   lunch: [],

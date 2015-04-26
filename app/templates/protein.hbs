@@ -10,8 +10,6 @@
       headings
 @@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
-
-
 <ul class="food-ul">
 {{#each foodController in model itemController="food" }}
 <form>
@@ -26,7 +24,7 @@
     {{view "select"
     class="amt-unit food-line block1" content=foodController.amtUnit value=foodController.selectedAmtUnit }}
 
-    <p class="veggie-item food-item food-line omega" {{action 'showDetails' on="click" value=foodController.model.name}} >
+    <p class="protein-item food-item food-line omega" {{action 'showDetails' on="click" value=foodController.model.name}} >
       {{foodController.model.foodName}}
       - <span class="food-desc">{{foodController.model.foodDesc}}</span>
     </p>

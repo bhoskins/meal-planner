@@ -87,7 +87,7 @@ body {
   border-radius: .2em;
 }
 
-ul, li, a, p {
+ul, li, a, p, hr {
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -175,6 +175,10 @@ h3 {
 
 .heading-meal {
   display: inline-block;
+}
+
+.heading {
+  text-align: center;
 }
 
 .save-meal-button {
@@ -340,10 +344,15 @@ hr.section-divide-save:after {
     @include span-columns(4);
     @include omega();
   }
+  text-align: left;
   line-height: 2em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  }
+
+  .description {
+    font-family: cursive;
   }
 
 .block12 {
@@ -427,7 +436,9 @@ p.food-line {
 }
 
 .email-wrap,
-.password-wrap {
+.password-wrap,
+.first-name-wrap,
+.last-name-wrap {
   margin-bottom: 0.5em;
   margin-left: 30%;
   font-size: 1.2em;
@@ -435,6 +446,11 @@ p.food-line {
 
 .password-wrap {
   margin-left: 25%;
+}
+
+.first-name-wrap,
+.last-name-wrap {
+  margin-left: 23%;
 }
 
 .form-control {
@@ -457,6 +473,7 @@ p.food-line {
 
 .register-heading {
   margin-top: -0.5em;
+  font-size: 1.2em;
 }
 
 .register-here {

@@ -1,22 +1,25 @@
 <div id="page-wrap">
 {{log model}}
 
-<!--
-<h1 class="section-header">Day Plan</h1>
--->
+{{#if session.isAuthenticated}}
+  <a class="logout" {{ action 'invalidateSession'}}>Logout</a>
+  {{else}}
+  {{#link-to 'login'}}Login{{/link-to}}
+{{/if}}
 
 
 {{!-- @@@@@@ Select Date @@@@@@@@ --}}
 
 <form>
 
-<div class="date-wrap">
-{{date-picker date=mydate valueFormat='YYYY-MM-DD' format='MMMM Do YYYY' class="date-picker" }}
+  <div class="date-wrap">
+    {{date-picker date=mydate valueFormat='YYYY-MM-DD' format='MMMM Do YYYY' class="date-picker" }}
 
-  {{#link-to 'dayPlan' mydate}}
+
+    {{#link-to 'dayPlan' mydate}}
     <button class="load-btn">Load Meals</button>
-  {{/link-to}}
-</div>
+    {{/link-to}}
+  </div>
 
 {{!-- @@@@@@ Select Meal Nav @@@@@@@@ --}}
 
@@ -97,10 +100,8 @@
     <p class="block1 heading extra">sod/mg</p>
     <p class="block1 heading extra omega">fib/g</p>
 
-    -->
-
     <hr class="line block12 heading">
-
+-->
 
   <ul class="meal-ul">
 {{#each item in model.breakfast}}

@@ -29,11 +29,6 @@ export default Base.extend({
       }
     };
 
-  //   return ajax('https://api.parse.com/1/' + endpoint, options).then(function(response) {
-  //     return {sessionToken: response.sessionToken};
-  //   }.bind(this));
-  // },
-
     return ajax('https://api.parse.com/1/' + endpoint, options).then(function(response) {
       response.id = response.objectId;
       delete response.objectId;

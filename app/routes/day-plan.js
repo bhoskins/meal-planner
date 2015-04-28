@@ -9,7 +9,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     this.set('date', params.date);
     return Ember.RSVP.hash({
       dayPlan: this.store.findQuery('dayPlan', {
-        'date': params.date
+        'date': params.date,
+        'createdBy': {
+          "__type": "Pointer",
+          "className": "_User",
+          "objectId": this.get('session.currentUser.id')
+        }
         }),
 
       veggies: this.store.findQuery('food', {
@@ -81,7 +86,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
   setupController: function(controller, model) {
     var date = this.get('date');
-    var dayPlan = Ember.isEmpty(model.dayPlan) ? this.store.createRecord('dayPlan', {date: date}) : model.dayPlan[0];
+    var dayPlan = Ember.isEmpty(model.dayPlan) ? this.store.createRecord('dayPlan', {date: date,
+      createdBy: this.get('session.currentUser')}) : model.dayPlan[0];
     controller.set('model', dayPlan);
   }
 

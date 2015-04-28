@@ -1,11 +1,11 @@
 <div id="page-wrap">
-{{log model}}
+  {{log model}}
 
-{{#if session.isAuthenticated}}
-  <a class="logout" {{ action 'invalidateSession'}}>Logout</a>
+  {{#if session.isAuthenticated}}
+    <a class="logout" {{ action 'invalidateSession'}}>Logout</a>
   {{else}}
-  {{#link-to 'login'}}Login{{/link-to}}
-{{/if}}
+    {{#link-to 'login'}}Login{{/link-to}}
+  {{/if}}
 
 {{!-- @@@@@@ Select Date @@@@@@@@ --}}
 

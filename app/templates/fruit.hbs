@@ -10,26 +10,26 @@
 @@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
 
-<ul class="food-ul">
-{{#each foodController in model itemController="food" }}
-<form>
-  <li>
-    <button type='submit' class="add-food-button add-food food-line text-align-right block1" {{action 'addFood' }}>
-      <span class="plus">+</span>
-    </button>
+  <ul class="food-ul">
+  {{#each foodController in model itemController="food" }}
+    <form>
+      <li>
+        <button type='submit' class="add-food-button add-food food-line text-align-right block1" {{action 'addFood' }}>
+          <span class="plus">+</span>
+        </button>
 
-    {{input type="number" class="amt-input food-line block1" name="Amt" value=foodController.selectedAmt min="0" step="0.25"}}
+        {{input type="number" class="amt-input food-line block1" name="Amt" value=foodController.selectedAmt min="0" step="0.25"}}
 
-    {{view "select"
-    class="amt-unit food-line block1" content=foodController.amtUnit value=foodController.selectedAmtUnit }}
+        {{view "select"
+        class="amt-unit food-line block1" content=foodController.amtUnit value=foodController.selectedAmtUnit }}
 
-    <p class="veggie-item food-item food-line omega" {{action 'showDetails' on="click" value=foodController.model.name}} >
-      {{foodController.model.foodName}}
-        - <span class="food-desc">{{foodController.model.foodDesc}}</span>
-    </p>
+        <p class="veggie-item food-item food-line omega" {{action 'showDetails' on="click" value=foodController.model.name}} >
+          {{foodController.model.foodName}}
+            - <span class="food-desc">{{foodController.model.foodDesc}}</span>
+        </p>
 
-    </li>
-  </form>
+        </li>
+      </form>
 
     {{/each}}
   </ul>

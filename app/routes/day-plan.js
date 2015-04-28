@@ -11,9 +11,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       dayPlan: this.store.findQuery('dayPlan', {
         'date': params.date,
         'createdBy': {
-          "__type": "Pointer",
-          "className": "_User",
-          "objectId": this.get('session.currentUser.id')
+        '__type': 'Pointer',
+        'className': '_User',
+        'objectId': this.get('session.currentUser.id')
         }
         }),
 

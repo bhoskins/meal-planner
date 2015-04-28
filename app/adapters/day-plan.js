@@ -26,8 +26,8 @@ export default Ember.Object.extend({
     /* jshint unused: false */
     return ajax("https://api.parse.com/1/classes/DayPlan", {
       data: Ember.$.param({
-              where: JSON.stringify(query)
-            })
+        where: JSON.stringify(query)
+      })
     }).then(function(response){
       return response.results.map(function(dayPlan) {
         dayPlan.id = dayPlan.objectId;

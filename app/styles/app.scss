@@ -80,7 +80,7 @@ body {
   background-attachment: fixed;
   color: $accent-color;
   @include media($phone){
-    background: url('/assets/images/food-mobile.png') no-repeat bottom center;
+    background: url('images/food-mobile.png') no-repeat bottom center;
     background-size: cover;
     background-attachment: fixed;
   }
@@ -177,7 +177,7 @@ h3 {
   width: 20px;
   height: 20px;
   vertical-align: middle;
-  background: url('/images/menu-bar.gif') center center no-repeat;
+  background: url('images/menu-bar.gif') center center no-repeat;
   background-size: 70%;
 }
 

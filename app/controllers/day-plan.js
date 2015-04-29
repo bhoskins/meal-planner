@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { moment, ago } from 'ember-moment/computed';
 
 export default Ember.Controller.extend({
   needs: ['veggies', 'food'],

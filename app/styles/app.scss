@@ -6,6 +6,7 @@
 ***************************************/
 $grid-columns: 8;
 $mobile: new-breakpoint(max-width 630px 6);
+$phone: new-breakpoint(max-width 480px 6);
 
 $max-width: 800px;
 $divide-line: 0.8 * ($max-width);
@@ -78,6 +79,11 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: $accent-color;
+  @include media($phone){
+    background: url('/assets/images/food-mobile.png') no-repeat bottom center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
 }
 
 #title {

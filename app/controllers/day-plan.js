@@ -37,12 +37,12 @@ export default Ember.Controller.extend({
   isSelected: false,
   selectedFoods: [],
   activateMealBtn: function(button) {
-    $('.meal-cat-btn').removeClass('selected');
-    $(button).addClass('selected');
+    Ember.$('.meal-cat-btn').removeClass('selected');
+    Ember.$(button).addClass('selected');
   },
   activateFoodBtn: function(button) {
-    $('.food-cat-btn').removeClass('selected');
-    $(button).addClass('selected');
+    Ember.$('.food-cat-btn').removeClass('selected');
+    Ember.$(button).addClass('selected');
   },
 
   actions: {

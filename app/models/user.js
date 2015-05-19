@@ -11,7 +11,7 @@ export default Model.extend({
           objects: [
             {
               __type: 'Pointer',
-              className: 'user',
+              className: '_User', //user
               objectId: dayPlan.id
             }
           ]
